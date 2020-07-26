@@ -1,0 +1,19 @@
+{
+  "name": "ftpsrv",
+  "version": "1.0.0",
+  "description": "FTP server with special commands",
+  "main": "ftpsrv.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "ftp",
+    "server",
+    "earp"
+  ],
+  "author": "Mario Galea",
+  "license": "ISC",
+  "dependencies": {
+    "ftp-srv": "^4.3.2"
+  }
+}
