@@ -3,7 +3,6 @@ const bunyan = require('bunyan');
 var fs = require('fs');
 var fsWatcher = require('chokidar');
 var crypto = require('crypto');
-
 var key = '412169';
 
 var hash = crypto.createHash('sha512', key);
@@ -53,17 +52,14 @@ XMLwatcher
 
     })
     .on('add', function (path) {
-        log.info(path, 'has been added');
-        var foundMatch = path.search(/([0-9]{1,4}_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])_B2(B|C)[A-Z]{5,20}_[0-9]{2}\.xml)$/);
-        var findDir = path.search(/(\\.*)$/g);
+        var fileInfo = {};
+        const foundMatch = path.search(/([0-9]{1,4}_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])_B2(B|C)[A-Z]{5,20}_[0-9]{2}\.xml)$/);
         if (foundMatch > 0) {
-
             var fstream = fs.createReadStream(path);
-            var operIdPattern = path.search(/(_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])_B2(B|C)[A-Z]{5,20}_[0-9]{2}\.xml)$/);
-            var datePattern = path.search(/(_B2(B|C)[A-Z]{5,20}_[0-9]{2}\.xml)$/);
-            var reportPattern = path.search(/(_[0-9]{2}\.xml)$/);
-            var versionPattern = path.search(/(\.xml)$/);
-            var fileInfo = {};
+            const operIdPattern = path.search(/(_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])_B2(B|C)[A-Z]{5,20}_[0-9]{2}\.xml)$/);
+            const datePattern = path.search(/(_B2(B|C)[A-Z]{5,20}_[0-9]{2}\.xml)$/);
+            const reportPattern = path.search(/(_[0-9]{2}\.xml)$/);
+            const versionPattern = path.search(/(\.xml)$/);
             fileInfo.name = path.substring(foundMatch);
             fileInfo.oper = path.substring(foundMatch, operIdPattern);
             fileInfo.date = path.substring(operIdPattern + 1, datePattern);
@@ -73,11 +69,16 @@ XMLwatcher
                 fileInfo.hash = hash.read();
                 log.info({
                     fileInfo
-                }, "file");
+                }, "accepted");
             });
+        } else {
+            const fileIndex = path.lastIndexOf('\\') + 1;
+            fileInfo.name = path.substr(fileIndex);
+            log.info({
+                fileInfo
+            }, "discarded");
+            fs.unlinkSync(path)
         }
-
-
     })
     .on('change', function (path) {
         log.info(path, 'has been changed');
@@ -108,7 +109,6 @@ ftpServer.on('login', ({
     });
 
 });
-
 
 ftpServer.listen()
     .then((value) => {

@@ -111,3 +111,48 @@
 {"name":"ftpserver","hostname":"RCD01","pid":35472,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\dragonara\\Letter to Nominee.pdf has been added","time":"2020-07-28T14:00:55.457Z","v":0}
 {"name":"ftpserver","hostname":"RCD01","pid":35472,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\dragonara\\SAS_Protocol_Overview.pdf has been added","time":"2020-07-28T14:00:55.459Z","v":0}
 {"name":"ftpserver","hostname":"RCD01","pid":35472,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"file","time":"2020-07-28T14:00:55.463Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":34704,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T14:12:16.441Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":34704,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T14:12:16.445Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":34704,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"file","time":"2020-07-28T14:12:16.468Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":18840,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T14:21:46.517Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":18840,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T14:21:46.521Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":18840,"level":30,"fileInfo":{},"msg":"discarded","time":"2020-07-28T14:21:46.545Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":18840,"level":30,"fileInfo":{},"msg":"discarded","time":"2020-07-28T14:21:46.549Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":18840,"level":30,"fileInfo":{},"msg":"discarded","time":"2020-07-28T14:21:46.550Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":18840,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T14:21:46.553Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":11416,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T14:25:58.750Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":11416,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T14:25:58.756Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":11416,"level":30,"fileInfo":{"name":"c:\\node-ftpsrv\\downloads\\bestplay\\Spades.svg"},"msg":"discarded","time":"2020-07-28T14:25:58.790Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":11416,"level":30,"fileInfo":{"name":"c:\\node-ftpsrv\\downloads\\dragonara\\Letter to Nominee.pdf"},"msg":"discarded","time":"2020-07-28T14:25:58.792Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":11416,"level":30,"fileInfo":{"name":"c:\\node-ftpsrv\\downloads\\dragonara\\SAS_Protocol_Overview.pdf"},"msg":"discarded","time":"2020-07-28T14:25:58.793Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":11416,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T14:25:58.798Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":9204,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T14:26:42.851Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":9204,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T14:26:42.854Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":9204,"level":30,"fileInfo":{"name":"Spades.svg"},"msg":"discarded","time":"2020-07-28T14:26:42.877Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":9204,"level":30,"fileInfo":{"name":"Letter to Nominee.pdf"},"msg":"discarded","time":"2020-07-28T14:26:42.882Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":9204,"level":30,"fileInfo":{"name":"SAS_Protocol_Overview.pdf"},"msg":"discarded","time":"2020-07-28T14:26:42.883Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":9204,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T14:26:42.887Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T14:29:54.570Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T14:29:54.574Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"fileInfo":{"name":"Spades.svg"},"msg":"discarded","time":"2020-07-28T14:29:54.595Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"fileInfo":{"name":"Letter to Nominee.pdf"},"msg":"discarded","time":"2020-07-28T14:29:54.600Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"fileInfo":{"name":"SAS_Protocol_Overview.pdf"},"msg":"discarded","time":"2020-07-28T14:29:54.601Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T14:29:54.603Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\bestplay\\Spades.svg has been removed","time":"2020-07-28T14:29:54.694Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\dragonara\\Letter to Nominee.pdf has been removed","time":"2020-07-28T14:29:54.696Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\dragonara\\SAS_Protocol_Overview.pdf has been removed","time":"2020-07-28T14:29:54.697Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"fileInfo":{"name":"GACP.pdf.pdf"},"msg":"discarded","time":"2020-07-28T14:31:04.640Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":29156,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\dragonara\\GACP.pdf.pdf has been removed","time":"2020-07-28T14:31:05.237Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":35852,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T14:32:21.791Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":35852,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T14:32:21.803Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":35852,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T14:32:21.861Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":35852,"level":30,"fileInfo":{"name":"OfficeSetup.exe"},"msg":"discarded","time":"2020-07-28T14:32:56.868Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T14:33:51.571Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T14:33:51.575Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"fileInfo":{"name":"OfficeSetup.exe"},"msg":"discarded","time":"2020-07-28T14:33:51.599Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"fileInfo":{"name":"POA Random(1).pdf"},"msg":"discarded","time":"2020-07-28T14:33:51.601Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T14:33:52.190Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\dragonara\\OfficeSetup.exe has been removed","time":"2020-07-28T14:33:52.192Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\dragonara\\POA Random(1).pdf has been removed","time":"2020-07-28T14:33:52.194Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"fileInfo":{"name":"GACP.pdf(1).pdf"},"msg":"discarded","time":"2020-07-28T14:34:11.098Z","v":0}
+{"name":"ftpserver","hostname":"RCD01","pid":32692,"level":30,"msg":"c:\\node-ftpsrv\\downloads\\dragonara\\GACP.pdf(1).pdf has been removed","time":"2020-07-28T14:34:11.680Z","v":0}
