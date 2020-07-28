@@ -14,6 +14,7 @@
   "author": "Mario Galea",
   "license": "ISC",
   "dependencies": {
+    "chokidar": "^3.4.1",
     "ftp-srv": "^4.3.2"
   }
 }
