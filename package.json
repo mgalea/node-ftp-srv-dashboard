@@ -15,6 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "chokidar": "^3.4.1",
-    "ftp-srv": "^4.3.2"
+    "fast-xml-parser": "^3.17.4",
+    "ftp-srv": "^4.3.2",
+    "he": "^1.2.0",
+    "line-reader": "^0.4.0"
   }
 }

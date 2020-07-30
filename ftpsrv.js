@@ -3,6 +3,8 @@ const bunyan = require('bunyan');
 var fs = require('fs');
 var fsWatcher = require('chokidar');
 var crypto = require('crypto');
+var XMLparser = require('fast-xml-parser');
+
 var key = '412169';
 
 var hash = crypto.createHash('sha512', key);
@@ -15,11 +17,12 @@ const log = bunyan.createLogger({
             level: 'info'
         }, {
             path: 'ftpserver.log',
-            level: 'info',
-            period: '1m',
-            count: 12
-        }
-
+            level: 'info'
+        },
+        {
+            path: 'ftpserver.log',
+            level: 'error'
+        },
     ]
 });
 
@@ -28,9 +31,10 @@ const ftpServer = new FtpSrv({
     log: log,
     pasv_url: '192.168.8.135',
     pasv_min: 8881,
-    greeting: ['Welcome', 'to', 'the', 'MGA', 'EARP', 'SYSTEM'],
+    greeting: 'MGA EARP REPORTING SYSTEM. Random Systems Int. All rights reserved 2020',
     file_format: 'ep',
-    anonymous: 'sillyrabbit'
+    anonymous: 'sillyrabbit',
+    blacklist: ['DELE', 'RNTO']
 });
 
 var XMLwatcher = fsWatcher.watch(`${process.cwd()}/downloads`, {
@@ -48,8 +52,8 @@ var XMLwatcher = fsWatcher.watch(`${process.cwd()}/downloads`, {
 
 XMLwatcher
     .on('unlink', function (path) {
-        log.info(path, 'has been removed');
-
+        const fileIndex = path.lastIndexOf('\\') + 1;
+        log.info(path.substr(fileIndex), 'has been removed');
     })
     .on('add', function (path) {
         var fileInfo = {};
@@ -65,18 +69,35 @@ XMLwatcher
             fileInfo.date = path.substring(operIdPattern + 1, datePattern);
             fileInfo.type = path.substring(datePattern + 1, reportPattern);
             fileInfo.vers = parseInt(path.substring(reportPattern + 1, versionPattern));
-            fstream.pipe(hash).on('finish', function () {
-                fileInfo.hash = hash.read();
-                log.info({
-                    fileInfo
-                }, "accepted");
+            fs.readFile(path, 'utf8', function (err, xmlData) {
+                if (err) {
+                    return log.error(err);
+                }
+                if (XMLparser.validate(xmlData) === true) { //optional (it'll return an object in case it's not valid)
+                    //var jsonObj = XMLparser.parse(xmlData, options);
+                    //console.log(JSON.stringify(jsonObj, null, 1));
+                    fstream.pipe(hash).on('finish', function () {
+                        fileInfo.hash = hash.read();
+                        log.info({
+                            fileInfo
+                        }, "accepted");
+                    });
+
+                } else {
+                    const fileIndex = path.lastIndexOf('\\') + 1;
+                    fileInfo.name = path.substr(fileIndex);
+                    log.info({
+                        fileInfo
+                    }, "invalid");
+                    fs.unlinkSync(path)
+                }
             });
         } else {
             const fileIndex = path.lastIndexOf('\\') + 1;
             fileInfo.name = path.substr(fileIndex);
             log.info({
                 fileInfo
-            }, "discarded");
+            }, "rejected");
             fs.unlinkSync(path)
         }
     })
