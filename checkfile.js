@@ -5,13 +5,15 @@ const querystring = require('querystring');
 const http = require('http');
 var lineReader = require('line-reader');
 const path = require('path');
-
 const fsReaddir = util.promisify(fs.readdir);
 const fsReadFile = util.promisify(fs.readFile);
 const fsLstat = util.promisify(fs.lstat);
+var eachLine = util.promisify(lineReader.eachLine);
+
 
 const requestListener = async function (req, res) {
     let queryObj = url.parse(req.url, true).query;
+    res.setHeader('Content-Type', 'application/json');
     res.writeHead(200);
     for (var attribute in queryObj) {
         console.log(attribute, ": ", queryObj[attribute]);
@@ -19,9 +21,14 @@ const requestListener = async function (req, res) {
             res.end('undefined');
         } else if (attribute === "fileinfo") {
             const logRecords = await searchFilesInDirectoryAsync(process.cwd(), queryObj[attribute], ".log");
-            console.log(logRecords);
-
-            res.end('bye');
+            let output=[]
+            for (record of logRecords){
+                var JSONrecord = JSON.parse(record);
+                output.push(JSONrecord);
+                //res.pipe(JSONrecord);
+            }
+            console.log(output);
+            res.end(JSON.stringify(output));
         }
     }
 }
@@ -33,25 +40,21 @@ async function searchFilesInDirectoryAsync(dir, filter, ext) {
     });
 
     const found = await getFilesInDirectoryAsync(dir, ext);
+    const regex = new RegExp(filter, 'i');
+    console.log(regex);
 
     for (file of found) {
-        const regex = new RegExp(filter, 'i');
-        console.log(regex);
-        var eachLine = util.promisify(lineReader.eachLine);
-        eachLine(file, function (line) {
-                var i = 0;
-                if (regex.test(line)) {
-                    logrecord.push(line);
-                    console.log(line);
-                }
-            })
-            .then(function (err) {
-                if (err) throw err;
-                console.log(file, ": Done");
-            });
-
+       await eachLine(file, function (line) {
+            var i = 0;
+            if (regex.test(line)) {
+                logrecord.push(line);
+                //console.log(line);
+            }
+        }).then((err) => {
+            if (err) throw err;
+            console.log(file, ": Done");           
+        });
     };
-    console.log(logrecord);
     return logrecord;
 }
 
@@ -77,8 +80,10 @@ async function getFilesInDirectoryAsync(dir, ext) {
 
         }
     };
+
     return files;
 }
+
 
 const server = http.createServer(requestListener);
 server.listen(8080);
