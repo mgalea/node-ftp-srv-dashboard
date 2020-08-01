@@ -1,15 +1,77 @@
-{"name":"ftpserver","hostname":"RCD01","pid":8432,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T17:43:55.384Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":8432,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T17:43:55.388Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":8432,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T17:43:55.428Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":21564,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T17:54:47.046Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":21564,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T17:54:47.049Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":21564,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T17:54:47.084Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":21564,"level":30,"msg":"someone logged in","time":"2020-07-28T17:55:00.690Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":22612,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T18:01:11.936Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":22612,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T18:01:11.940Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":22612,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T18:01:11.969Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":28912,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-07-28T18:02:55.155Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":28912,"level":30,"msg":"Listening on port 8880","time":"2020-07-28T18:02:55.158Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":28912,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T18:02:55.200Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":28912,"level":30,"msg":"someone logged in","time":"2020-07-28T18:03:00.323Z","v":0}
-{"name":"ftpserver","hostname":"RCD01","pid":19032,"level":30,"fileInfo":{"name":"007_2020_07_27_B2CPLYRACCDTLS_00.xml","oper":"007","date":"2020_07_27","type":"B2CPLYRACCDTLS","vers":0,"hash":"4ecfb0b919107bd70e6a55021a403c701e54db3b8ab6cf8ee1d89b6d09f8bcf9f45faf126e5e4f5fc8d3214ed804e8937098d4985d1fef3ebddc42e0baff7850"},"msg":"accepted","time":"2020-07-28T19:04:33.107Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":3784,"level":40,"msg":"Passive URL not set. Passive connections not available.","time":"2020-08-01T14:02:49.744Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":3784,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:02:49.747Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":27300,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:04:33.125Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":12724,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:05:11.613Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36076,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:06:48.620Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36076,"id":"df861c9f-54c8-419e-86eb-a9d17fd85d6c","level":50,"err":{"message":"read ECONNRESET","name":"Error","stack":"Error: read ECONNRESET\n    at TCP.onStreamRead (internal/stream_base_commons.js:201:27)","code":"ECONNRESET"},"msg":"Client error","time":"2020-08-01T14:07:54.144Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36076,"id":"df861c9f-54c8-419e-86eb-a9d17fd85d6c","level":50,"err":{"message":"read ECONNRESET","name":"Error","stack":"Error: read ECONNRESET\n    at TCP.onStreamRead (internal/stream_base_commons.js:201:27)","code":"ECONNRESET"},"msg":"Client error","time":"2020-08-01T14:07:54.144Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":30304,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:08:35.512Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38376,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:10:08.824Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38376,"id":"8d4906d3-b664-4eaf-b24e-124e89b435f8","directive":"CWD","level":50,"err":{"message":"ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\test'","name":"Error","stack":"Error: ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\test'","code":"ENOENT"},"msg":"ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\test'","time":"2020-08-01T14:10:51.308Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38376,"id":"8d4906d3-b664-4eaf-b24e-124e89b435f8","directive":"CWD","level":50,"err":{"message":"ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\test'","name":"Error","stack":"Error: ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\test'","code":"ENOENT"},"msg":"ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\test'","time":"2020-08-01T14:10:51.308Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38376,"id":"8d4906d3-b664-4eaf-b24e-124e89b435f8","directive":"CWD","level":50,"err":{"message":"ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\dragonara'","name":"Error","stack":"Error: ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\dragonara'","code":"ENOENT"},"msg":"ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\dragonara'","time":"2020-08-01T14:10:52.731Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38376,"id":"8d4906d3-b664-4eaf-b24e-124e89b435f8","directive":"CWD","level":50,"err":{"message":"ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\dragonara'","name":"Error","stack":"Error: ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\dragonara'","code":"ENOENT"},"msg":"ENOENT: no such file or directory, stat 'c:\\node-ftpsrv\\downloads\\test\\dragonara'","time":"2020-08-01T14:10:52.731Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":34632,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:12:43.166Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38824,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:15:06.784Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":5576,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:15:26.851Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":25540,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:15:48.240Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":24896,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:16:29.693Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":35132,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:19:22.145Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":8832,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:19:27.344Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":35660,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:21:04.547Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":35816,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:24:05.311Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":16964,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:25:18.645Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":34312,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:28:48.529Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":31684,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:48:33.535Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":4644,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:48:43.618Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":37552,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:50:36.680Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36856,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T14:59:01.135Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":9328,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:00:00.032Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":15968,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:13:04.987Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":19696,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:19:14.490Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":28952,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:19:38.676Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":13988,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:21:38.035Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":11708,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:31:58.214Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":32696,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:34:03.281Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":37568,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:37:29.410Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":23700,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:38:34.934Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":29216,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:40:25.241Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":28492,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:45:31.113Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36024,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:46:24.114Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":4052,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:48:56.424Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":12156,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T15:58:54.236Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":37820,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:01:08.276Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":932,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:02:35.507Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38456,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:05:42.040Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":13532,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:08:19.530Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":37024,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:11:49.665Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":20996,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:13:50.911Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36512,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:16:31.488Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":9948,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:21:42.155Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":29560,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:25:27.917Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36984,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:26:33.973Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":23728,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:27:23.614Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":34120,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:28:39.273Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":25228,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:29:43.931Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":16108,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:30:04.098Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":14724,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:31:35.540Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":7024,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:36:43.716Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":34076,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:40:09.035Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":35892,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:46:43.900Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":21620,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:51:02.709Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":7376,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:52:04.316Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38088,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:53:34.761Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":15860,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:56:40.105Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":37848,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:57:20.314Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":22616,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T16:59:30.422Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":27180,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:00:56.727Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":32176,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:06:12.854Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":35648,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:06:51.642Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":29012,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:07:36.838Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":15772,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:09:42.432Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":12824,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:13:00.361Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":20276,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:14:06.344Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":29984,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:14:39.358Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":30768,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:15:19.950Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":32316,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:16:23.634Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":1980,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-01T17:16:56.522Z","v":0}
