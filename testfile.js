@@ -7,21 +7,23 @@ var fs = require('fs');
 var fsWatcher = require('chokidar');
 var XMLparser = require('fast-xml-parser');
 
+var crypto = require('crypto');
+
 /** Set up the application logs */
 const log = bunyan.createLogger({
     name: "earp",
     streams: [{
-        stream: process.stdout,
-        level: 'info'
-    }, 
-    {
-        path: 'earp.log',
-        level: 'info'
-    },
-    {
-        path: 'earp_error.log',
-        level: 'error'
-    },
+            stream: process.stdout,
+            level: 'info'
+        },
+        {
+            path: 'earp.log',
+            level: 'info'
+        },
+        {
+            path: 'earp_error.log',
+            level: 'error'
+        },
     ]
 });
 
@@ -49,36 +51,37 @@ XMLwatcher
         var fileInfo = {};
         const fileIndex = path.lastIndexOf('\\') + 1;
         fileInfo.filename = path.substring(fileIndex);
-        const foundMatch = path.search(/([0-9]{3,4}_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])_B2(B|C)[A-Z]{5,20}_V[0-9]{1,3}\.xml)$/i); //TODO stored in config file
+        const foundMatch = path.search(/([0-9]{3,4}_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])_B2(B|C)[A-Z|0-9]{5,20}_V[0-9]{1,3}\.xml)$/i); //TODO stored in config file
         if (foundMatch > 0) {
 
-           var xmlData = fs.readFileSync(path, 'utf8', function (err, result) {
+            var xmlData = fs.readFileSync(path, 'utf8', function (err, result) {
                 if (err) {
                     return log.error(err);
                 }
                 return result;
             });
             if (XMLparser.validate(xmlData) === true) { //optional (it'll return an object in case it's not valid)
-                const operIdPattern = path.search(/(_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])_B2(B|C)[A-Z]{5,20}_V[0-9]{1,3}\.xml)$/i); //TODO stored in config file
-                const datePattern = path.search(/(_B2(B|C)[A-Z]{5,20}_V[0-9]{1,3}\.xml)$/i); //TODO stored in config file
+                const operIdPattern = path.search(/(_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])_B2(B|C)[A-Z|0-9]{5,20}_V[0-9]{1,3}\.xml)$/i); //TODO stored in config file
+                const datePattern = path.search(/(_B2(B|C)[A-Z|0-9]{5,20}_V[0-9]{1,3}\.xml)$/i); //TODO stored in config file
                 const reportPattern = path.search(/(_V[0-9]{1,3}\.xml)$/i); //TODO stored in config file
                 const versionPattern = path.search(/(\.xml)$/i); //TODO stored in config file
                 fileInfo.oper = path.substring(foundMatch, operIdPattern);
                 fileInfo.date = path.substring(operIdPattern + 1, datePattern);
                 fileInfo.type = path.substring(datePattern + 1, reportPattern);
                 fileInfo.vers = parseInt(path.substring(reportPattern + 2, versionPattern));
-             
-            //var hash512 = crypto.createHash('sha512', nconf.get('sha512_key')).setEncoding('hex'); // this must be placed here as it needs to be declared every time a hash is generated
-                //fstream.pipe(hash512).on('finish', function () {
-                    //fileInfo.hash = hash512.read();
-                log.info({
-                    fileInfo
-                }, "accepted");
-                }else{ 
+                var hash = crypto.createHash('sha256', '412169)').setEncoding('hex'); // this must be placed here as it needs to be declared every time a hash is generated
+                fs.createReadStream(path).pipe(hash).on('finish', function () {
+                    fileInfo.hash = hash.read();
+                    log.info({
+                        fileInfo
+                    }, "accepted");
+                });
+            } else {
                 log.info({
                     fileInfo
                 }, "rejected: invalid xml syntax");
-            fileValid = 1;}
+                fileValid = 1;
+            }
         } else {
             log.info({
                 fileInfo

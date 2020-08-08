@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by mgalea (Ramdom Consulting LLC) -->
+<!-- Title: Common Data types as defined by the Regulatory Reporting Interface (RRI) by Gaming Standards Association -->
+<!-- Maintaining Agent: Random Consulting based on Gaming Standrads Association RRI -->
+<!-- Owner: Malta Gaming Authority based on Gaming Standrads Association RRI -->
+<!-- Support: mario.galea@RNGgaming.com-->
+<!-- Version:20200810-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="RRI" targetNamespace="RRI" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3" xml:lang="en">
+	<xs:simpleType name="AccountStatusType1">
+		<xs:annotation>
+			<xs:documentation>Player Account Status</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Active"/>
+			<xs:enumeration value="Self Excluded"/>
+			<xs:enumeration value="Blocked"/>
+			<xs:enumeration value="Dormant"/>
+			<xs:enumeration value="Closed"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AddressType2Code">
+		<xs:annotation>
+			<xs:documentation>Address Types. This Data type is compatible with AdressType2Code of ISO20022.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max4Text">
+			<xs:enumeration value="ADDR"/>
+			<xs:enumeration value="PBOX"/>
+			<xs:enumeration value="HOME"/>
+			<xs:enumeration value="BIZZ"/>
+			<xs:enumeration value="MLTO"/>
+			<xs:enumeration value="DLVY"/>
+			<xs:enumeration value="OTHR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ContactDetailsType1">
+		<xs:annotation>
+			<xs:documentation>Personal Contact Details</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PhneNb" type="PhoneNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phone Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MobNb" type="PhoneNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Mobile Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmailAdr" type="EmailAddress" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Email Address</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Othr" type="Max35Text" minOccurs="0" maxOccurs="10">
+				<xs:annotation>
+					<xs:documentation>Use this field for Social Media accounts such as WeChat, Skype, etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContactDetailsType2">
+		<xs:annotation>
+			<xs:documentation>Contact Details</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="NmPrfx" type="NamePrefix1Code" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name Prefix</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Nm" type="Max140Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Full Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PhneNb" type="PhoneNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Telephone Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MobNb" type="PhoneNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Mobile Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FaxNb" type="PhoneNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fax Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmailAdr" type="Max2048Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Email Address</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Othr" type="Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Other Contact Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="CurrencyAndAmountType2">
+		<xs:annotation>
+			<xs:documentation>Currency and Amount Simple Type Combination using an attribute</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="CurrencyCode MonetaryAmount"/>
+	</xs:simpleType>
+	<xs:simpleType name="CurrencyCode">
+		<xs:annotation>
+			<xs:documentation>All Currencies</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="ISOCurrencyCode VirtualCurrencyCode"/>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentCategoryType">
+		<xs:annotation>
+			<xs:documentation>Document Type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Detailed"/>
+			<xs:enumeration value="Summary"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="DocumentHeaderType1">
+		<xs:annotation>
+			<xs:documentation>Document Header Type 1</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Tp" type="DocumentType">
+				<xs:annotation>
+					<xs:documentation>Type of Document.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrdTp" type="DocumentPeriodType">
+				<xs:annotation>
+					<xs:documentation>Submission Report Period. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ctgy">
+				<xs:annotation>
+					<xs:documentation>Report Category</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CrtDtTm" type="ISODateTime">
+				<xs:annotation>
+					<xs:documentation>Report Creation Date and Time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RprtStrtDt" type="ISODateTime">
+				<xs:annotation>
+					<xs:documentation>Report Covering Period Start Date and Time.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RptPrd" type="ISODuration">
+				<xs:annotation>
+					<xs:documentation>Report Covering Period. Minimum is 1Month, maximum is one day.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RprtToCntry" type="ISOCountryCode">
+				<xs:annotation>
+					<xs:documentation>Reporting to Country</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RprtOprtr" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Gaming Licence ID of Rapporteur</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RprtURL" type="URL" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List all website that are covered by this report.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="DocumentPeriodType">
+		<xs:annotation>
+			<xs:documentation>Document Reporting Period</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Periodic"/>
+			<xs:enumeration value="NearRealtime"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentType">
+		<xs:annotation>
+			<xs:documentation>Document Type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Report"/>
+			<xs:enumeration value="Message"/>
+			<xs:enumeration value="Data Extract"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EmailAddress">
+		<xs:annotation>
+			<xs:documentation>Email Address according to the RFC 882</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max255Text">
+			<xs:pattern value="[^\.][^@]*@([^\.|^@])+\.[^@]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FundingTypes">
+		<xs:annotation>
+			<xs:documentation>Funding Types</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max35Text">
+			<xs:enumeration value="Cash"/>
+			<xs:enumeration value="Credit Card"/>
+			<xs:enumeration value="Virtual Financial Asset"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GameTypes">
+		<xs:annotation>
+			<xs:documentation>Types of Gaming </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max35Text">
+			<xs:enumeration value="Slots"/>
+			<xs:enumeration value="Video Poker"/>
+			<xs:enumeration value="Table"/>
+			<xs:enumeration value="Fixed Odds Betting"/>
+			<xs:enumeration value="Binary Options"/>
+			<xs:enumeration value="Pari Mutuel"/>
+			<xs:enumeration value="Totalizer"/>
+			<xs:enumeration value="Lottery"/>
+			<xs:enumeration value="Raffle"/>
+			<xs:enumeration value="Distributed Pool Prize"/>
+			<xs:enumeration value="Bingo"/>
+			<xs:enumeration value="Poker"/>
+			<xs:enumeration value="Betting Exchange"/>
+			<xs:enumeration value="Fantasy"/>
+			<xs:enumeration value="Pachinko"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GamingDeliveryChannelType1">
+		<xs:annotation>
+			<xs:documentation>Game Delivery Channel from Operator to Player</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max35Text">
+			<xs:enumeration value="Land-based"/>
+			<xs:enumeration value="Online"/>
+			<xs:enumeration value="Live-Stream"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GamingTerminalType1">
+		<xs:annotation>
+			<xs:documentation>Type of  Player Gaming Device</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max35Text">
+			<xs:enumeration value="Personal Computer"/>
+			<xs:enumeration value="Dedicated Terminal"/>
+			<xs:enumeration value="Personal Mobile"/>
+			<xs:enumeration value="Dedciated  Mobile"/>
+			<xs:enumeration value="Electronic Gaming Machine"/>
+			<xs:enumeration value="Paper Based"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IdDocumentTypes">
+		<xs:annotation>
+			<xs:documentation>Type of Personal Identification Document</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max35Text">
+			<xs:enumeration value="Passport"/>
+			<xs:enumeration value="Driving License"/>
+			<xs:enumeration value="National ID Card"/>
+			<xs:enumeration value="Voters Card"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IPv4Address">
+		<xs:annotation>
+			<xs:documentation>IPv4 address in dot-decimal notation as defined by IETF Standard. Equivalent to [0-255].[0-255].[0-255].[0-255]</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max255Text">
+			<xs:pattern value="((1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOCountryCode">
+		<xs:annotation>
+			<xs:documentation>ISO 3166 alpha-2</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max2Text">
+			<xs:pattern value="(A[D-GILMOQ-UWXZ]|B[ABD-JL-OQ-TVWYZ]|C[ACDF-IK-ORU-Z]|D[EJKMOZ]|E[CEGHRST]|F[IJKMOR]|G[ABD-ILMNP-UWY]|H[KMNRTU]|I[DEL-OQ-T]|J[EMOP]|K[EGHIMNPRWYZ]|L[ABCIKR-VY]|M[AC-HK-Z]|N[ACEFGILOPRUZ]|OM|P[AE-HK-NRSTWY]|QA|R[EOSUW]|S[A-EG-ORSTVXYZ]|T[CDFGHJ-ORTVWZ]|U[AGMSYZ]|V[ACEGINU]|W[FS]|Y[ET]|Z[AMW])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISOCurrencyCode">
+		<xs:annotation>
+			<xs:documentation>ISO 4217:2015 for fiat Currencies</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max3Text">
+			<xs:pattern value="A(DF|DP|ED|FA|FN|LL|MD|NG|OA|OK|ON|OR|RA|RL|RP|RS|TS|UD|WG|ZM|ZN)|B(AD|AM|BD|DT|EF|GL|GN|HD|IF|MD|ND|OB|OP|OV|RB|RC|RE|RL|RN|RR|SD|TN|WP|YB|YN|YR|ZD)|C(AD|DF|HE|HF|HW|LE|LF|LP|NY|OP|OU|RC|SD|SK|UC|UP|VE|YP|ZK)|D(DM|EM|JF|KK|OP|ZD)|E(CS|CV|EK|GP|RN|SA|SB|SP|TB|UR)|F(IM|JD|KP|RF)|G(BP|EL|HC|HS|IP|MD|NE|NF|QE|RD|TQ|WP)|H(KD|NL|RD|RK|TG|UF)|I(DR|EP|LP|LR|LS|NR|QD|RR|SJ|SK|TL)|J(MD|OD|PY)|K(ES|GS|HR|MF|PW|RW|WD|YD|ZT)|L(AK|BP|KR|BP|KR|RD|SL|TL|UF|VL|YD)|M(AD|AF|CF|DL|GA|GF|KD|KN|LV|MK|NT|OP|RO|TL|UR|VQ|VR|WK|XN|XP|XV|YR|ZM|ZN)|N(AD|GN|IO|LG|OK|PR|ZD)|OMR|P(AB|EN|GK|HP|KR|LN|TE|YG)|QAR|R(ON|SD|UB|WF)|S(AR|BD|CR|DG|EK|GD|HP|IT|KK|LL|ML|OS|RD|SP|TD|VC|YP|ZL)|T(HB|JS|MT|ND|OP|RY|TD|WD|ZS)|U(AH|GX|SD|SN|YI|YU)|ZS|V(AL|EF|ND|UV)|WST|X(AF|AG|AU|BA|BB|BC|BD|BT|CD|DR|FU|OK|PD|PF|PT|SU|TS|UA)|YER|Z(AR|MW|WL)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISODate">
+		<xs:annotation>
+			<xs:documentation>ISO 8601 Basic and Extended Notations as YYYY-MM-DD</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="ISODateTime">
+		<xs:annotation>
+			<xs:documentation>ISO 8601 Basic and Extended Notations as YYYY-MM-DDTHH:MM:SS in UTC format</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:dateTime">
+			<xs:pattern value="(-?([1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISODuration">
+		<xs:annotation>
+			<xs:documentation>ISO 8601 Basic and Extended Notations as P(n)Y(n)M(n)DT(n)H(n)M(n)S</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:duration">
+			<xs:pattern value="P[0-9]{1,2}[HMDY]{1,1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISODurationDay">
+		<xs:annotation>
+			<xs:documentation>ISO 8601 Basic and Extended Notations as P(n)D</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:duration">
+			<xs:pattern value="P[1-3]?[0-9]D"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ISODurationMonth">
+		<xs:annotation>
+			<xs:documentation>ISO 8601 Basic and Extended Notations as P(n)M</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:duration">
+			<xs:pattern value="P[1-9][0-2]?M"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="JackpotEndType">
+		<xs:annotation>
+			<xs:documentation>Terminating Method of a Jackpot</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Won"/>
+			<xs:enumeration value="Withdrawn"/>
+			<xs:enumeration value="Merged"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="JackpotInfoType1">
+		<xs:annotation>
+			<xs:documentation>Jackpot Info Type 1</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="JackpotName" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Identifier for the jackpot.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ccy" type="CurrencyCode">
+				<xs:annotation>
+					<xs:documentation>Currency of the accumulator</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlAmount" type="MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Total Amount of the jackpot at the end of the period</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="JackpotInfoType2">
+		<xs:annotation>
+			<xs:documentation>Jackpot Info Type 2</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="JckptNm" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Identifier for the jackpot.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="JckptPrzTp" type="JackpotPrizeTypes">
+				<xs:annotation>
+					<xs:documentation>Jackpot Link Type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="JckptPlTp" type="JackpotPoolTypes">
+				<xs:annotation>
+					<xs:documentation>Jackpot Pool Type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CCY" type="CurrencyCode">
+				<xs:annotation>
+					<xs:documentation>Currency of the Jackpot accumulator</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="JckptAmnt" type="MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Amount of jackpot at the end of the period</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="JckptStrtDt" type="ISODate">
+				<xs:annotation>
+					<xs:documentation>Jackpot Start Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="JckptEndTp" type="JackpotEndType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>End Information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="JackpotPoolTypes">
+		<xs:annotation>
+			<xs:documentation>Jackpot Pool Type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Standalone"/>
+			<xs:enumeration value="Proprietary"/>
+			<xs:enumeration value="Wide Area"/>
+			<xs:enumeration value="Shared"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="JackpotPrizeTypes">
+		<xs:annotation>
+			<xs:documentation>Jackpot Prize Type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Fixed"/>
+			<xs:enumeration value="Progressive"/>
+			<xs:enumeration value="Mystery"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max140Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 140 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Text">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="140"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max16Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 16 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Text">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max2048Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 2048 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Text">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="2048"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max255Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 256 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max2Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 2 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Text">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 35 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Text">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max3Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 3 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Text">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max4Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 4 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max70Text">
+		<xs:annotation>
+			<xs:documentation>Simple Character string datatype with max length of 70 chars</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Text">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="70"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MonetaryAmount">
+		<xs:annotation>
+			<xs:documentation>Format for representing monetary values. Should be used only in conjuction of with a Currency element or attribute.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="8"/>
+			<xs:totalDigits value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NamePrefix1Code">
+		<xs:annotation>
+			<xs:documentation>Name Prefixes or Titles</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max4Text">
+			<xs:enumeration value="DR"/>
+			<xs:enumeration value="MR"/>
+			<xs:enumeration value="MRS"/>
+			<xs:enumeration value="MADM"/>
+			<xs:enumeration value="MISS"/>
+			<xs:enumeration value="MAID"/>
+			<xs:enumeration value="REV"/>
+			<xs:enumeration value="FR"/>
+			<xs:enumeration value="SR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Number">
+		<xs:annotation>
+			<xs:documentation>Generic Numeric datatype</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:fractionDigits value="0"/>
+			<xs:totalDigits value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PersonalDetailsType1">
+		<xs:annotation>
+			<xs:documentation>Player Personal Details</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Prfx" type="NamePrefix1Code" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Prefix</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrstNm" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>First Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MdlNms" type="Max35Text" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Middle Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LstNm" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Last Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonalDetailsType2">
+		<xs:annotation>
+			<xs:documentation>Player Personal Details </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Prfx" type="NamePrefix1Code" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Prefix</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrstNm" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>First Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MdlNms" type="Max35Text" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Middle Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LstNm" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Last Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrsnID" type="PersonalIdDocumentType1" block="  " maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Personal Identification of Account Holder.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonalIdDocumentType1">
+		<xs:annotation>
+			<xs:documentation>Type of Personal Identification Document</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PrsnlIDNmbr" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>Personal Identification Number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocTp" type="IdDocumentTypes">
+				<xs:annotation>
+					<xs:documentation>Personal Identification Document Type. See Personal Document ID Types</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PhoneNumber">
+		<xs:annotation>
+			<xs:documentation>Phone Number data type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\+[0-9]{1,3}-[0-9()+\-]{1,30}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PlayerIdentificationType1">
+		<xs:annotation>
+			<xs:documentation>Player Identification Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="Max2048Text">
+				<xs:annotation>
+					<xs:documentation>A unique identification that is traceable to a player.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PlayerIdentificationType2">
+		<xs:annotation>
+			<xs:documentation>Player Identification Information using a goverment issued document.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Id" type="Max2048Text">
+				<xs:annotation>
+					<xs:documentation>Identification Number issued by operator to trace the player</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdDoc" type="PersonalIdDocumentType1">
+				<xs:annotation>
+					<xs:documentation>Identification Document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PlayerIdentificationType3">
+		<xs:annotation>
+			<xs:documentation>Player Identification Information</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max35Text">
+			<xs:pattern value="0x [A-Za-z0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PlayerIdentificationType4">
+		<xs:annotation>
+			<xs:documentation>Player Details Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PlayerUniqueId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Player Unique Identification given by operator. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlyrTp" type="PlayerTypes2" default="Account Based" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Player Type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlyrFrstNm" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Player First Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlyrMdlNms" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Player Middle Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlyrLstNm" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Player last Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrsnID" type="xs:string" block="  " minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Personal ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AMLFlag" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ResCntry" type="ISOCountryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Residential Country</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BrthCntry" type="ISOCountryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Country of Birth</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DoB" type="ISODate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date Of Birth</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AcctCrtDt" type="ISODate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Account Credit Date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PlayerIdentificationType5">
+		<xs:annotation>
+			<xs:documentation>Player Identification Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PlyrId">
+				<xs:annotation>
+					<xs:documentation>Player Unique Id as referred to in the Player Managment System.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="Max2048Text">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PlyrTp" type="PlayerTypes1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Type of Player. Important to report test accounts, junkets and corporate players</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PersnDtl" type="PersonalDetailsType2" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Personal Details of Account Holder. Applies only if Tp is Individual or Junket. This can only be omitted if TP is Test or Corporate.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CntctDtl" type="ContactDetailsType1">
+				<xs:annotation>
+					<xs:documentation>Contact Details of the Account Holder.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PstlAddr" type="PostalAddress1">
+				<xs:annotation>
+					<xs:documentation>Postal Address of the Account Holder</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CtryOfRes" type="ISOCountryCode">
+				<xs:annotation>
+					<xs:documentation>Country of  Residency if Tp is Individual or Junket. Otherwise Country of Tax Residency if Tp=Corporate.		</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CtryOfBirth" type="ISOCountryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Country of Birth of Account Holder.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DoB" type="ISODate" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Date of Birth of Account Holder if Tp is Individual or Junket.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LstLgnDt" type="ISODate">
+				<xs:annotation>
+					<xs:documentation>Date of last login.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LgnIP" type="IPv4Address">
+				<xs:annotation>
+					<xs:documentation>IP V4 Address of the  last login.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PlayerIdentificationType6">
+		<xs:annotation>
+			<xs:documentation>Player Details Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PlayerUniqueId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Player Unique Identification given by operator. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlyrFrstNm" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Player First Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlyrMdlNms" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Player Middle Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PlyrLstNm" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Player last Name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResCntry" type="ISOCountryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Country of Residence (for tax purposes)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BrthCntry" type="ISOCountryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Natural Country of Birth</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PlayerTypes1">
+		<xs:annotation>
+			<xs:documentation>Type of Player for Land Based Gaming</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Junket"/>
+			<xs:enumeration value="Walk In"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PlayerTypes2">
+		<xs:annotation>
+			<xs:documentation>Type of Player for all Gaming</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Account Based"/>
+			<xs:enumeration value="Walk In"/>
+			<xs:enumeration value="Junket"/>
+			<xs:enumeration value="Corporate"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PostalAddress1">
+		<xs:annotation>
+			<xs:documentation>Postal Address Information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AdrTp" type="AddressType2Code" default="HOME" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>See Address types.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Dept" type="Max70Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Department</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SubDept" type="Max70Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Sub Department</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StrtNm" type="Max70Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Street Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BldgNb" type="Max16Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Building, Office or Suite Number </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="addrLn" type="addressLineType" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Address Lines</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PstCd" type="Max16Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Postal Code used to deliver mail</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TwnNm" type="Max35Text">
+				<xs:annotation>
+					<xs:documentation>City or Town name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CtrySubDvsn" type="Max35Text" minOccurs="0" maxOccurs="2">
+				<xs:annotation>
+					<xs:documentation>Country Subdivison</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ctry" type="ISOCountryCode">
+				<xs:annotation>
+					<xs:documentation>Country</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Text">
+		<xs:annotation>
+			<xs:documentation>Generic Text datatype</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="URL">
+		<xs:annotation>
+			<xs:documentation>Uniform Resource Locator as defined by IETF and W3C. The format is "scheme:[//authority]path[?query][#fragment]"</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max255Text">
+			<xs:pattern value="[A-Za-z]+://([0-9A-Za-z-]+\.)+[A-Za-z]{2,63}/?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VirtualCurrencyCode">
+		<xs:annotation>
+			<xs:documentation>Codes for Virtual Currencies</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max3Text">
+			<xs:pattern value="[A-Z]{3,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="WageringStakeType">
+		<xs:annotation>
+			<xs:documentation>Types of Stake used for wagering</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Max16Text">
+			<xs:enumeration value="Cash"/>
+			<xs:enumeration value="Account Based"/>
+			<xs:enumeration value="Bank Transfer"/>
+			<xs:enumeration value="EFT"/>
+			<xs:enumeration value="VFA"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="addressLineType">
+		<xs:sequence>
+			<xs:element name="addressLine" type="Max70Text" minOccurs="1"/>
+			<xs:element name="nextaddrLn" type="addressLineType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="fullnameType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1"/>
+			<xs:element name="addrLn" type="addressLineType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

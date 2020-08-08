@@ -6,9 +6,7 @@ const nconf = require('nconf');
 const FtpSrv = require('ftp-srv');
 const bunyan = require('bunyan');
 var fs = require('fs');
-var fsWatcher = require('chokidar');
-var crypto = require('crypto');
-var XMLparser = require('fast-xml-parser');
+
 
 var fileValid = 0;
 console.log("\033[91m______/\\______ ");
@@ -66,7 +64,7 @@ const ftpServer = new FtpSrv({
     greeting: nconf.get('ftpserver.welcomemsg'),
     anonymous: nconf.get('ftpserver.anonymous'),
     file_format: 'ep',
-    blacklist: ['DELE', 'RNTO','RETR'],
+    blacklist: ['DELE', 'RNTO', 'RETR'],
     log: bunyan.createLogger({
         name: 'ftpsrv',
         streams: [{
@@ -84,21 +82,6 @@ const ftpServer = new FtpSrv({
     }, )
 });
 
-var XMLwatcher = fsWatcher.watch(`${process.cwd()}/downloads`, {
-    ignored: /(^|[\/\\])\../,
-    persistent: true,
-    alwaysState: true,
-    usePolling: false,
-    interval: 100,
-    binaryInterval: 300,
-    awaitWriteFinish: {
-        stabilityThreshold: 1000,
-        pollInterval: 100
-    },
-    ignorePermissionErrors: false,
-});
-
-
 ftpServer.on('login', ({
     connection,
     username,
@@ -114,7 +97,7 @@ ftpServer.on('login', ({
         reject('Bad username or password');
     }
     connection.on('STOR', (error, fileName) => {
-        log.info(fileName," uploaded by ",username);
+        log.info(fileName, " uploaded by ", username);
     });
     connection.on('RETR', (error, filePath) => {
         log.info(filePath + " has been downloaded.");

@@ -15,7 +15,7 @@ const requestListener = async function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.writeHead(200);
     for (var attribute in queryObj) {
-        console.log(attribute, ": ", queryObj[attribute]);
+        console.log("Searching for ", attribute, ": ", queryObj[attribute]);
         if (attribute === null) {
             res.end('undefined');
         } else if (attribute === "fileinfo") {

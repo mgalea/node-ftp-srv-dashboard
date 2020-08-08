@@ -80,3 +80,5 @@
 {"name":"ftpsrv","hostname":"Acer-Veriton","pid":13784,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-02T08:55:01.539Z","v":0}
 {"name":"ftpsrv","hostname":"Acer-Veriton","pid":16648,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-02T12:06:09.137Z","v":0}
 {"name":"ftpsrv","hostname":"Acer-Veriton","pid":4788,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-02T12:11:09.645Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":19580,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-03T09:46:56.193Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":38140,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-03T09:47:18.182Z","v":0}

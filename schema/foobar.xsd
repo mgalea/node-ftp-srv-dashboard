@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by mgalea (Ramdom Consulting LLC) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="foo">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="bar" type="xs:string" maxOccurs="unbounded"/>
+				<xs:element name="toobar" type="PlayerIdentification" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="PlayerIdentification">
+		<xs:annotation>
+			<xs:documentation>Player Identification Information</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="0x[A-Za-z0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
