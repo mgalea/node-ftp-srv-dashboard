@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2013 rel. 2 (x64) (http://www.altova.com) by mgalea (Ramdom Consulting LLC) -->
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by Mario Galea (Random Consulting) -->
 <!-- Title: MGA Common Data types as defined by the Directive 6 of the Malta Gaming Act  -->
 <!-- Maintaining Agent: Random Consulting based on Gaming Standrads Association RRI -->
 <!-- Owner: Malta Gaming Authority based on Gaming Standrads Association RRI -->
@@ -12,29 +12,29 @@
 			<xs:documentation>Summary of a Player Account Activity</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="TtlOpnBlc" type="rri:MonetaryAmount">
+			<xs:element name="OpnBlc" type="rri:MonetaryAmount">
 				<xs:annotation>
 					<xs:documentation>Total Opening Balance at the start of the period.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlDpst" type="rri:MonetaryAmount">
+			<xs:element name="TtlDpst" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount Deposited during period.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlWthdrw" type="rri:MonetaryAmount">
+			<xs:element name="TtlWthdrw" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount Withdrawn during period.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TtlCashIn" type="rri:MonetaryAmount">
 				<xs:annotation>
-					<xs:documentation>Total Monetary Amount of Cash In that did not result from Gaming activity.</xs:documentation>
+					<xs:documentation>Total Monetary Amount of Cash In from gaming activity</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TtlCashOut" type="rri:MonetaryAmount">
 				<xs:annotation>
-					<xs:documentation>Total Monetary Amount cash out that was not gaming activity and was not withdrawn. For example buddy transfer to paying of commission fees.</xs:documentation>
+					<xs:documentation>Total Monetary Amount cash out that went into gaming</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="TtlFndsInPly" type="rri:MonetaryAmount">
@@ -52,14 +52,24 @@
 					<xs:documentation>Total Underrun. The Underrun is the excess of the original wager price over the final cost of a wager.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="TtlCashInOthr" type="rri:MonetaryAmountPositive" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Total Monetary Amount of Cash In from sources other than gaming activity</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlCashOutOthr" type="rri:MonetaryAmountPositive" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Total Monetary Amount of Cash Out to sources other than gaming activity. e.g. buddy transfers</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:simpleType name="BaseRateEuro">
-		<xs:annotation>
-			<xs:documentation>The forex rate for the currency to Euro as published on the report date by the European Central Bank</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="rri:Number"/>
-	</xs:simpleType>
+	<xs:complexType name="AccountActivitySummarybyPlayerType">
+		<xs:sequence>
+			<xs:element name="PlyrTp" type="rri:PlayerTypes1"/>
+			<xs:element name="AccActvySmry" type="mga:AccountActivitySummary"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:simpleType name="B2BGameTypesMT">
 		<xs:annotation>
 			<xs:documentation>B2B Game Types as defined in the Gaming Act, Malta</xs:documentation>
@@ -71,72 +81,12 @@
 			<xs:enumeration value="Type4"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="JackpotsSummary">
+	<xs:simpleType name="BaseRateEuro">
 		<xs:annotation>
-			<xs:documentation>Information on how a Jackpot Ended</xs:documentation>
+			<xs:documentation>The forex rate for the currency to Euro as published on the report date by the European Central Bank</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Jackpot" type="rri:JackpotInfoType2" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:element name="BettingActivitySummary">
-		<xs:annotation>
-			<xs:documentation>Information on Betting Activity</xs:documentation>
-		</xs:annotation>
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="TtlBtSlpTrSmry" type="mga:BetSlipsTransactionSummary">
-					<xs:annotation>
-						<xs:documentation>Bet Slips transaction summary for the period</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="TtlBtTrSmry" type="mga:BetsTransactionSummary">
-					<xs:annotation>
-						<xs:documentation>Bet Transaction Summary</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="PlyrTp" type="rri:PlayerTypes1"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:complexType name="BetsTransactionSummary">
-		<xs:annotation>
-			<xs:documentation>Betting Transactions Summary</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="TtlBetsOpn" type="rri:Number">
-				<xs:annotation>
-					<xs:documentation>Total Number of bets opened during the period.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlBetsClsd" type="rri:Number">
-				<xs:annotation>
-					<xs:documentation>Total number of bets closed during the period.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlBetsPndg" type="rri:Number">
-				<xs:annotation>
-					<xs:documentation>Total number of bets pending at the end of the period.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="BetTypes">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="TtlReal" type="mga:BettingVerticals">
-							<xs:annotation>
-								<xs:documentation>Total Amount of bets opened based on real  events during the period. Based on open bets</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="TtlVirtual" type="mga:BettingVerticals">
-							<xs:annotation>
-								<xs:documentation>Total Amount of bets opened based on virtual events during the period. Based on open Bets</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
+		<xs:restriction base="rri:Number"/>
+	</xs:simpleType>
 	<xs:complexType name="BetSlipsTransactionSummary">
 		<xs:annotation>
 			<xs:documentation>Betting Slips Activity Summary</xs:documentation>
@@ -189,6 +139,89 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="BetsTransactionSummary">
+		<xs:annotation>
+			<xs:documentation>Betting Transactions Summary</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TtlBetsOpn" type="rri:Number">
+				<xs:annotation>
+					<xs:documentation>Total Number of bets opened during the period.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlBetsClsd" type="rri:Number">
+				<xs:annotation>
+					<xs:documentation>Total number of bets closed during the period.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlBetsPndg" type="rri:Number">
+				<xs:annotation>
+					<xs:documentation>Total number of bets pending at the end of the period.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BetTypes">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TtlReal" type="mga:BettingVerticals">
+							<xs:annotation>
+								<xs:documentation>Total Amount of bets opened based on real  events during the period. Based on open bets</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TtlVirtual" type="mga:BettingVerticals">
+							<xs:annotation>
+								<xs:documentation>Total Amount of bets opened based on virtual events during the period. Based on open Bets</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BettingActivitySummary">
+		<xs:annotation>
+			<xs:documentation>Information on Betting Activity</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="TtlBtSlpTrSmry" type="mga:BetSlipsTransactionSummary">
+					<xs:annotation>
+						<xs:documentation>Bet Slips transaction summary for the period</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="TtlBtTrSmry" type="mga:BetsTransactionSummary">
+					<xs:annotation>
+						<xs:documentation>Bet Transaction Summary</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PlyrTp" type="rri:PlayerTypes1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="BettingVerticals">
+		<xs:annotation>
+			<xs:documentation>Type of Betting Markets</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Lotteries" type="rri:Max16Text"/>
+			<xs:element name="Sports" type="rri:Max16Text"/>
+			<xs:element name="Events" type="rri:Max16Text">
+				<xs:annotation>
+					<xs:documentation>Events other than sports or lotteries. (such as weather, election results, TV contests,etc.)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BetType">
+		<xs:annotation>
+			<xs:documentation>Type of Bets</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Single" type="rri:Max16Text"/>
+			<xs:element name="Combo" type="rri:Max16Text"/>
+			<xs:element name="Multi" type="rri:Max16Text"/>
+			<xs:element name="Other" type="rri:Max16Text"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:element name="CurrencyType">
 		<xs:simpleType>
 			<xs:union memberTypes="rri:ISOCurrencyCode mga:BaseRateEuro rri:VirtualCurrencyCode"/>
@@ -199,32 +232,32 @@
 			<xs:documentation>Document Header Type 1</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Tp" type="rri:DocumentType">
+			<xs:element name="Tp" type="rri:DocumentType" >
 				<xs:annotation>
 					<xs:documentation>Type of Document.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="PrdTp" type="rri:DocumentPeriodType">
+			<xs:element name="PrdTp" type="rri:DocumentPeriodType" >
 				<xs:annotation>
 					<xs:documentation>Submission Report Period. Report must be periodic.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Ctgy" type="rri:DocumentCategoryType">
+			<xs:element name="Ctgy" type="rri:DocumentCategoryType" >
 				<xs:annotation>
 					<xs:documentation>Category</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="CrtDtTm" type="rri:ISODateTime">
+			<xs:element name="CrtDtTm" type="rri:ISODateTime" >
 				<xs:annotation>
 					<xs:documentation>Report Creation Date and Time.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RprtStrtDt" type="rri:ISODateTime">
+			<xs:element name="RprtStrtDt" type="rri:ISODateTime" >
 				<xs:annotation>
 					<xs:documentation>Report Covering Period Start Date and Time.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="RptPrd" type="rri:ISODuration">
+			<xs:element name="RptPrd" type="rri:ISODuration" >
 				<xs:annotation>
 					<xs:documentation>Report Covering Period is that of 1 report per Day.</xs:documentation>
 				</xs:annotation>
@@ -244,6 +277,11 @@
 					<xs:documentation>List all website that are covered by this report.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="VrsNb" type="rri:Number" default="0">
+				<xs:annotation>
+					<xs:documentation>Report Version Number. Default is 0. The Report Version Number only incrments if the same report is being resubmitted to the MGA EARP system.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="GameCount">
@@ -254,12 +292,36 @@
 			<xs:minInclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:complexType name="JackpotsSummary">
+		<xs:annotation>
+			<xs:documentation>Information on how a Jackpot Ended</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Jackpot" type="rri:JackpotInfoType2" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:simpleType name="OperatorMTLicence">
 		<xs:annotation>
 			<xs:documentation>Malta Gaming Authority Licence Number</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="rri:Max35Text">
 			<xs:pattern value="[A-Za-z]+/[A-Za-z]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PeriodTypes">
+		<xs:annotation>
+			<xs:documentation>Time Periods</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="rri:Max16Text">
+			<xs:enumeration value="RealTime"/>
+			<xs:enumeration value="Minute"/>
+			<xs:enumeration value="Hourly"/>
+			<xs:enumeration value="Daily"/>
+			<xs:enumeration value="Weekly"/>
+			<xs:enumeration value="Monthly"/>
+			<xs:enumeration value="Half Yearly"/>
+			<xs:enumeration value="Yearly"/>
+			<xs:enumeration value="Licence Period"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="PlayerAccount">
@@ -370,12 +432,6 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="AccountActivitySummarybyPlayerType">
-		<xs:sequence>
-			<xs:element name="PlyrTp" type="rri:PlayerTypes1"/>
-			<xs:element name="AccActvySmry" type="mga:AccountActivitySummary"/>
-		</xs:sequence>
-	</xs:complexType>
 	<xs:complexType name="PlayerActivitySummary">
 		<xs:annotation>
 			<xs:documentation>Player Activity Information</xs:documentation>
@@ -384,257 +440,77 @@
 			<xs:element ref="mga:BettingActivitySummary" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="SummaryType1ActivitybyOperator">
+	<xs:complexType name="PoolTypes">
 		<xs:annotation>
-			<xs:documentation>Summary Game Activity By Operator</xs:documentation>
+			<xs:documentation>Types of Pool Betting</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="OprId" type="mga:OperatorMTLicence">
-				<xs:annotation>
-					<xs:documentation>Operator unique Identifier by MT B2C licence</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlGamePly" type="mga:GameCount">
-				<xs:annotation>
-					<xs:documentation>Total games played during period. Set to 0 if there are no games played for the period.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="SmryOprCashFlow" type="mga:SummaryCashflowByOperator"/>
+			<xs:element name="Lottery" type="rri:Max16Text"/>
+			<xs:element name="Jackpot" type="rri:Max16Text"/>
+			<xs:element name="Parimutuel" type="rri:Max16Text"/>
+			<xs:element name="Bingo" type="rri:Max16Text"/>
+			<xs:element name="PoolBetting" type="rri:Max16Text"/>
+			<xs:element name="Other" type="rri:Max16Text"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="SummaryLiveGameCashflowByPlayerType">
+	<xs:complexType name="SportsTypes">
+		<xs:annotation>
+			<xs:documentation>Major sports on whihc MGA  collects statistical data</xs:documentation>
+		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Player" type="rri:PlayerTypes1"/>
-			<xs:element name="SmryCshFlTpLvTbl" type="mga:SummaryCashFlowByType1LiveTable" maxOccurs="unbounded"/>
+			<xs:element name="AmericanFootball" type="rri:Max16Text"/>
+			<xs:element name="Basketball" type="rri:Max16Text"/>
+			<xs:element name="Cycling" type="rri:Max16Text"/>
+			<xs:element name="HorseRacing" type="rri:Max16Text"/>
+			<xs:element name="Soccer" type="rri:Max16Text"/>
+			<xs:element name="Other" type="rri:Max16Text"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="SummaryCashflowByOperator">
 		<xs:sequence>
-			<xs:element name="TtlCoinIn" type="rri:MonetaryAmount">
+			<xs:element name="TtlCoinIn" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount wagered for the period</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlCoinOut" type="rri:MonetaryAmount">
+			<xs:element name="TtlCoinOut" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount won for the period.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlPending" type="rri:MonetaryAmount" minOccurs="0">
+			<xs:element name="TtlPending" type="rri:MonetaryAmountPositive" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount in pending funds in games for the period.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlNonCshblCrdtIn" type="rri:MonetaryAmount" minOccurs="0">
+			<xs:element name="TtlNonCshblCrdtIn" type="rri:MonetaryAmountPositive" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount of non cashable credits played</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlNonCshblCrdtOut" type="rri:MonetaryAmount" minOccurs="0">
+			<xs:element name="TtlNonCshblCrdtOut" type="rri:MonetaryAmountPositive" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount of non cashable credits won</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlCshblCrdtIn" type="rri:MonetaryAmount" minOccurs="0">
+			<xs:element name="TtlCshblCrdtIn" type="rri:MonetaryAmountPositive" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount of cashable credits played</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlCshblCrdtOut" type="rri:MonetaryAmount" minOccurs="0">
+			<xs:element name="TtlCshblCrdtOut" type="rri:MonetaryAmountPositive" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Total Monetary Amount of cashable credits won</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlJckptCntrb" type="rri:MonetaryAmount" minOccurs="0">
+			<xs:element name="TtlJckptCntrb" type="rri:MonetaryAmountPositive" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Total Jackpot Contribution</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlJckptWon" type="rri:MonetaryAmount" minOccurs="0">
+			<xs:element name="TtlJckptWon" type="rri:MonetaryAmountPositive" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Total Jackpot Monetary Amount won by players</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:simpleType name="Type1Games">
-		<xs:annotation>
-			<xs:documentation>Type 1 Games</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="rri:Max35Text">
-			<xs:enumeration value="Slots"/>
-			<xs:enumeration value="Video poker"/>
-			<xs:enumeration value="Roulette"/>
-			<xs:enumeration value="Black Jack"/>
-			<xs:enumeration value="Poker"/>
-			<xs:enumeration value="Baccarat"/>
-			<xs:enumeration value="Punto Banco"/>
-			<xs:enumeration value="Lotteries"/>
-			<xs:enumeration value="Secondary lotteries"/>
-			<xs:enumeration value="Virtual sports games"/>
-			<xs:enumeration value="Other"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="Type2Games">
-		<xs:annotation>
-			<xs:documentation>Type 2 Games</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="rri:Max35Text">
-			<xs:enumeration value="American Footall"/>
-			<xs:enumeration value="Athletics"/>
-			<xs:enumeration value="Baseball"/>
-			<xs:enumeration value="Basketball"/>
-			<xs:enumeration value="Canadian Footall"/>
-			<xs:enumeration value="Cricket"/>
-			<xs:enumeration value="Cycling"/>
-			<xs:enumeration value="Golf"/>
-			<xs:enumeration value="Horse Racing"/>
-			<xs:enumeration value="Motor Sports"/>
-			<xs:enumeration value="Soccer"/>
-			<xs:enumeration value="Swimming"/>
-			<xs:enumeration value="Tennis"/>
-			<xs:enumeration value="Water Polo"/>
-			<xs:enumeration value="Other"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="Type3Games">
-		<xs:annotation>
-			<xs:documentation>Type 3 Games</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="rri:Max35Text">
-			<xs:enumeration value="Betting exchange"/>
-			<xs:enumeration value="P2P poker"/>
-			<xs:enumeration value="P2P bingo"/>
-			<xs:enumeration value="Raffles"/>
-			<xs:enumeration value="Scratch cards"/>
-			<xs:enumeration value="Pari mutuel"/>
-			<xs:enumeration value="Pool betting"/>
-			<xs:enumeration value="Lottery messenger"/>
-			<xs:enumeration value="Other"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="Type4Games">
-		<xs:annotation>
-			<xs:documentation>Type 4 Games</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="rri:Max35Text">
-			<xs:enumeration value="American Football"/>
-			<xs:enumeration value="Baseball"/>
-			<xs:enumeration value="Basketball"/>
-			<xs:enumeration value="Canadian Football"/>
-			<xs:enumeration value="Cricket"/>
-			<xs:enumeration value="Esports"/>
-			<xs:enumeration value="Motor sports"/>
-			<xs:enumeration value="Swimming"/>
-			<xs:enumeration value="Water Polo"/>
-			<xs:enumeration value="Golf"/>
-			<xs:enumeration value="Hockey"/>
-			<xs:enumeration value="Horse Racing"/>
-			<xs:enumeration value="Martial arts"/>
-			<xs:enumeration value="First person shooter"/>
-			<xs:enumeration value="MMORG"/>
-			<xs:enumeration value="MOBA"/>
-			<xs:enumeration value="Soccer"/>
-			<xs:enumeration value="Other"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="WagerActivityDetail">
-		<xs:annotation>
-			<xs:documentation>Detailed Information on Wagering Activity</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="TmStmp" type="rri:ISODateTime">
-				<xs:annotation>
-					<xs:documentation>Wager Activity Time Stamp</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="WgrTp" type="rri:WageringStakeType">
-				<xs:annotation>
-					<xs:documentation>Wager Type</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="WgrCcy" type="rri:CurrencyCode">
-				<xs:annotation>
-					<xs:documentation>Wager Currency </xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="AmtPlyd" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Amount Played/Wagered</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="AmtWon" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Amount Won</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PGCPlyd" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Player Game Contributions Played</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PGCWon" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Player Game Contributions Won</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="WagerActivitySummary">
-		<xs:annotation>
-			<xs:documentation>Summary Information on Wagering Activity</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="CCY" maxOccurs="unbounded">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="TtlAmtPlyd" type="rri:MonetaryAmount">
-							<xs:annotation>
-								<xs:documentation>Total money played during period</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="TtlAmtWon" type="rri:MonetaryAmount">
-							<xs:annotation>
-								<xs:documentation>Total money won during period</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="TtlPGCPlyd" type="rri:MonetaryAmount">
-							<xs:annotation>
-								<xs:documentation>Total monetary amount of Promotional Gaming Credits played during period</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-					<xs:attribute name="CCY" type="rri:ISOCurrencyCode" default="EUR"/>
-					<xs:attribute name="BaseRate" type="xs:decimal" default="1.0"/>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="SummaryCashFlowByType1LiveTable">
-		<xs:sequence>
-			<xs:element name="TblID" type="rri:Max16Text">
-				<xs:annotation>
-					<xs:documentation>Table ID</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlOnAccount" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Total Monetary Value on Account</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlDrop" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Total Monetary value on Drop on Tables</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlFills" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Total Monetary Amount on Fills</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlCredits" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Total monetary Amount on Credits</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -673,6 +549,119 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:complexType name="SummaryCashFlowByType1LiveTable">
+		<xs:sequence>
+			<xs:element name="TblID" type="rri:Max16Text">
+				<xs:annotation>
+					<xs:documentation>Table ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlOnAccount" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Total Monetary Value on Account</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlDrop" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Total Monetary value on Drop on Tables</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlFills" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Total Monetary Amount on Fills</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlCredits" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Total monetary Amount on Credits</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SummaryLiveGameCashflowByPlayerType">
+		<xs:sequence>
+			<xs:element name="Player" type="rri:PlayerTypes1"/>
+			<xs:element name="SmryCshFlTpLvTbl" type="mga:SummaryCashFlowByType1LiveTable" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SummaryType1ActivitybyOperator">
+		<xs:annotation>
+			<xs:documentation>Summary Game Activity By Operator</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OprId" type="mga:OperatorMTLicence">
+				<xs:annotation>
+					<xs:documentation>Operator unique Identifier by MT B2C licence</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlGamePly" type="mga:GameCount">
+				<xs:annotation>
+					<xs:documentation>Total games played during period. Set to 0 if there are no games played for the period.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SmryOprCashFlow" type="mga:SummaryCashflowByOperator"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SummaryType2ActivitybyOperator">
+		<xs:annotation>
+			<xs:documentation>Summary Report to be generated by B2C operators</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OprId" type="mga:OperatorMTLicence" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Operators ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="mga:BettingActivitySummary"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SummaryType3ActivityByOperator">
+		<xs:annotation>
+			<xs:documentation>Game Activity by Operator</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OprId" type="mga:OperatorMTLicence">
+				<xs:annotation>
+					<xs:documentation>Operator unique Identifier by MT B2C licence</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice maxOccurs="3">
+				<xs:element name="PoolGmSmry" type="mga:Type3PoolGamesSummary" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Any pooled game with shared liquidity including parimutuel games and bingo.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PkrTrnmtSmry" type="mga:Type3PokerTournamentSummary" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Poker Torunaments</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PkrGmSmry" type="mga:Type3PokerGameSummary" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Any Poker Game</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Type1Games">
+		<xs:annotation>
+			<xs:documentation>Type 1 Games</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="rri:Max35Text">
+			<xs:enumeration value="Slots"/>
+			<xs:enumeration value="Video poker"/>
+			<xs:enumeration value="Roulette"/>
+			<xs:enumeration value="Black Jack"/>
+			<xs:enumeration value="Poker"/>
+			<xs:enumeration value="Baccarat"/>
+			<xs:enumeration value="Punto Banco"/>
+			<xs:enumeration value="Lotteries"/>
+			<xs:enumeration value="Secondary lotteries"/>
+			<xs:enumeration value="Virtual sports games"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="Type1GameSession">
 		<xs:sequence>
 			<xs:element name="TransactionID" type="rri:Max140Text">
@@ -717,45 +706,63 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="Type3PoolGameSession">
-		<xs:sequence>
-			<xs:element name="GameID" type="rri:Max35Text">
-				<xs:annotation>
-					<xs:documentation>Unique Identifier for Pool Game</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="VendorID" type="rri:Max35Text" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Id for Game Vendor . Optional if the same as Reporting operator</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="GameType" type="mga:Type3Games" default="Pool betting">
-				<xs:annotation>
-					<xs:documentation>Sub- type of Type 3 Game. Defaults to Pool Betting</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlTicketsPlyd" type="mga:GameCount">
-				<xs:annotation>
-					<xs:documentation>Total number of Tickets Played in Pool.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlStakeAmnt" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Total Stake in Pool</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="TtlPrizeAmnt" type="rri:MonetaryAmount">
-				<xs:annotation>
-					<xs:documentation>Total Amount of Prizes handed</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
+	<xs:simpleType name="Type2Games">
+		<xs:annotation>
+			<xs:documentation>Type 2 Games</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="rri:Max35Text">
+			<xs:enumeration value="American Footall"/>
+			<xs:enumeration value="Athletics"/>
+			<xs:enumeration value="Baseball"/>
+			<xs:enumeration value="Basketball"/>
+			<xs:enumeration value="Canadian Footall"/>
+			<xs:enumeration value="Cricket"/>
+			<xs:enumeration value="Cycling"/>
+			<xs:enumeration value="Golf"/>
+			<xs:enumeration value="Horse Racing"/>
+			<xs:enumeration value="Motor Sports"/>
+			<xs:enumeration value="Soccer"/>
+			<xs:enumeration value="Swimming"/>
+			<xs:enumeration value="Tennis"/>
+			<xs:enumeration value="Water Polo"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Type3DetailedGameActivityByOperator">
+		<xs:annotation>
+			<xs:documentation>Game Activity by Operator</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="PoolGameSession" type="mga:Type3PoolGameSession" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PokerGameSession" type="mga:Type3PokerGameSession" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
 	</xs:complexType>
+	<xs:simpleType name="Type3Games">
+		<xs:annotation>
+			<xs:documentation>Type 3 Games</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="rri:Max35Text">
+			<xs:enumeration value="Betting exchange"/>
+			<xs:enumeration value="P2P poker"/>
+			<xs:enumeration value="P2P bingo"/>
+			<xs:enumeration value="Raffles"/>
+			<xs:enumeration value="Scratch cards"/>
+			<xs:enumeration value="Pari mutuel"/>
+			<xs:enumeration value="Pool betting"/>
+			<xs:enumeration value="Lottery messenger"/>
+			<xs:enumeration value="Other"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:complexType name="Type3PokerGameSession">
 		<xs:annotation>
 			<xs:documentation>Poker Game Session</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
+			<xs:element name="Oprid" type="mga:OperatorMTLicence">
+				<xs:annotation>
+					<xs:documentation>Operator unique Identifier by MT B2C licence</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="TblSessionID" type="rri:Text" default="0">
 				<xs:annotation>
 					<xs:documentation>Unique Table Session Identifier. </xs:documentation>
@@ -864,19 +871,24 @@
 					<xs:documentation>Totla Games Closed During Period</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlStakeAmnt" type="rri:MonetaryAmount">
+			<xs:element name="TtlStakeAmnt" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total Stake Amount of games closed during period</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlPotAmnt" type="rri:MonetaryAmount">
+			<xs:element name="TtlPotAmnt" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total Pot Amount of games closed during period</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlRakeAmnt" type="rri:MonetaryAmount">
+			<xs:element name="TtlRakeAmnt" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total Rake Amount of games closed during period</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlAgntCntrb" type="rri:MonetaryAmountPositive" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Totla contribution to Agents from closed games</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -888,19 +900,58 @@
 					<xs:documentation>Total Tournaments Closed During Period</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlBuyInAmnt" type="rri:MonetaryAmount">
+			<xs:element name="TtlBuyInAmnt" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total amount of Buyins for tournaments closed during period</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlRebuysAmnt" type="rri:MonetaryAmount">
+			<xs:element name="TtlRebuysAmnt" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total amount of Rebuys for tournaments closed during period</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TtlPrizeAmnt" type="rri:MonetaryAmount">
+			<xs:element name="TtlPrizeAmnt" type="rri:MonetaryAmountPositive">
 				<xs:annotation>
 					<xs:documentation>Total amount of Prize for tournaments closed during period</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Type3PoolGameSession">
+		<xs:sequence>
+			<xs:element name="Oprid" type="mga:OperatorMTLicence">
+				<xs:annotation>
+					<xs:documentation>Operator unique Identifier by MT B2C licence</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GameID" type="rri:Max35Text">
+				<xs:annotation>
+					<xs:documentation>Unique Identifier for Pool Game</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VendorID" type="rri:Max35Text" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Id for Game Vendor . Optional if the same as Reporting operator</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GameType" type="mga:Type3Games" default="Pool betting">
+				<xs:annotation>
+					<xs:documentation>Sub- type of Type 3 Game. Defaults to Pool Betting</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlTicketsPlyd" type="mga:GameCount">
+				<xs:annotation>
+					<xs:documentation>Total number of Tickets Played in Pool.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlStakeAmnt" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Total Stake in Pool</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TtlPrizeAmnt" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Total Amount of Prizes handed</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -933,22 +984,22 @@
 								<xs:documentation>Closing date of Pool Wityhin period</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="TtlPrizeAmnt" type="rri:MonetaryAmount">
+						<xs:element name="TtlPrizeAmnt" type="rri:MonetaryAmountPositive">
 							<xs:annotation>
 								<xs:documentation>Total prize amount awarded in pool games closed during the period.</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="TtlStakeAmnt" type="rri:MonetaryAmount">
+						<xs:element name="TtlStakeAmnt" type="rri:MonetaryAmountPositive">
 							<xs:annotation>
 								<xs:documentation>Total stake Amount in pool games closed during the period</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="TtlOperContrib">
+						<xs:element name="TtlOperContrib" type="rri:MonetaryAmountPositive">
 							<xs:annotation>
 								<xs:documentation>Total Contribution to Operator. This can be different from (TtlStakeAmnt-TtlPrizeAmnt) if the Pool was shared with other  operators</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="Shared" type="xs:boolean" minOccurs="0">
+						<xs:element name="SharedLiquidity" type="xs:boolean" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>True if pool was shared with other operators</xs:documentation>
 							</xs:annotation>
@@ -963,114 +1014,101 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="Type3DetailedGameActivityByOperator">
+	<xs:simpleType name="Type4Games">
 		<xs:annotation>
-			<xs:documentation>Game Activity by Operator</xs:documentation>
+			<xs:documentation>Type 4 Games</xs:documentation>
 		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="OprId" type="mga:OperatorMTLicence">
-				<xs:annotation>
-					<xs:documentation>Operator unique Identifier by MT B2C licence</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="PoolGameSession" type="mga:Type3PoolGameSession" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="PokerGameSession" type="mga:Type3PokerGameSession" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="Type3SummaryGameActivityByOperator">
-		<xs:annotation>
-			<xs:documentation>Game Activity by Operator</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="OprId" type="mga:OperatorMTLicence">
-				<xs:annotation>
-					<xs:documentation>Operator unique Identifier by MT B2C licence</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:choice maxOccurs="3">
-				<xs:element name="PoolGmSmry" type="mga:Type3PoolGamesSummary" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Any pooled game with shared liquidity including parimutuel games and bingo.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="PkrTrnmtSmry" type="mga:Type3PokerTournamentSummary" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Poker Torunaments</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="PkrGmSmry" type="mga:Type3PokerGameSummary" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Any Poker Game</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:choice>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:simpleType name="PeriodTypes">
-		<xs:annotation>
-			<xs:documentation>Time Periods</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="rri:Max16Text">
-			<xs:enumeration value="RealTime"/>
-			<xs:enumeration value="Minute"/>
-			<xs:enumeration value="Hourly"/>
-			<xs:enumeration value="Daily"/>
-			<xs:enumeration value="Weekly"/>
-			<xs:enumeration value="Monthly"/>
-			<xs:enumeration value="Half Yearly"/>
-			<xs:enumeration value="Yearly"/>
-			<xs:enumeration value="Licence Period"/>
+		<xs:restriction base="rri:Max35Text">
+			<xs:enumeration value="American Football"/>
+			<xs:enumeration value="Baseball"/>
+			<xs:enumeration value="Basketball"/>
+			<xs:enumeration value="Canadian Football"/>
+			<xs:enumeration value="Cricket"/>
+			<xs:enumeration value="Esports"/>
+			<xs:enumeration value="Motor sports"/>
+			<xs:enumeration value="Swimming"/>
+			<xs:enumeration value="Water Polo"/>
+			<xs:enumeration value="Golf"/>
+			<xs:enumeration value="Hockey"/>
+			<xs:enumeration value="Horse Racing"/>
+			<xs:enumeration value="Martial arts"/>
+			<xs:enumeration value="First person shooter"/>
+			<xs:enumeration value="MMORG"/>
+			<xs:enumeration value="MOBA"/>
+			<xs:enumeration value="Soccer"/>
+			<xs:enumeration value="Other"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="SportsTypes">
+	<xs:complexType name="WagerActivityDetail">
 		<xs:annotation>
-			<xs:documentation>Major sports on whihc MGA  collects statistical data</xs:documentation>
+			<xs:documentation>Detailed Information on Wagering Activity</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="AmericanFootball" type="rri:Max16Text"/>
-			<xs:element name="Basketball" type="rri:Max16Text"/>
-			<xs:element name="Cycling" type="rri:Max16Text"/>
-			<xs:element name="HorseRacing" type="rri:Max16Text"/>
-			<xs:element name="Soccer" type="rri:Max16Text"/>
-			<xs:element name="Other" type="rri:Max16Text"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="PoolTypes">
-		<xs:annotation>
-			<xs:documentation>Types of Pool Betting</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Lottery" type="rri:Max16Text"/>
-			<xs:element name="Jackpot" type="rri:Max16Text"/>
-			<xs:element name="Parimutuel" type="rri:Max16Text"/>
-			<xs:element name="Bingo" type="rri:Max16Text"/>
-			<xs:element name="PoolBetting" type="rri:Max16Text"/>
-			<xs:element name="Other" type="rri:Max16Text"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="BettingVerticals">
-		<xs:annotation>
-			<xs:documentation>Type of Betting Markets</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Lotteries" type="rri:Max16Text"/>
-			<xs:element name="Sports" type="rri:Max16Text"/>
-			<xs:element name="Events" type="rri:Max16Text">
+			<xs:element name="TmStmp" type="rri:ISODateTime">
 				<xs:annotation>
-					<xs:documentation>Events other than sports or lotteries. (such as weather, election results, TV contests,etc.)</xs:documentation>
+					<xs:documentation>Wager Activity Time Stamp</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WgrTp" type="rri:WageringStakeType">
+				<xs:annotation>
+					<xs:documentation>Wager Type</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WgrCcy" type="rri:CurrencyCode">
+				<xs:annotation>
+					<xs:documentation>Wager Currency </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmtPlyd" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Amount Played/Wagered</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AmtWon" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Amount Won</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PGCPlyd" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Player Game Contributions Played</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PGCWon" type="rri:MonetaryAmount">
+				<xs:annotation>
+					<xs:documentation>Player Game Contributions Won</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="BetType">
+	<xs:complexType name="WagerActivitySummary">
 		<xs:annotation>
-			<xs:documentation>Type of Bets</xs:documentation>
+			<xs:documentation>Summary Information on Wagering Activity</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Single" type="rri:Max16Text"/>
-			<xs:element name="Combo" type="rri:Max16Text"/>
-			<xs:element name="Multi" type="rri:Max16Text"/>
-			<xs:element name="Other" type="rri:Max16Text"/>
+			<xs:element name="CCY" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TtlAmtPlyd" type="rri:MonetaryAmount">
+							<xs:annotation>
+								<xs:documentation>Total money played during period</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TtlAmtWon" type="rri:MonetaryAmount">
+							<xs:annotation>
+								<xs:documentation>Total money won during period</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TtlPGCPlyd" type="rri:MonetaryAmount">
+							<xs:annotation>
+								<xs:documentation>Total monetary amount of Promotional Gaming Credits played during period</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="CCY" type="rri:ISOCurrencyCode" default="EUR"/>
+					<xs:attribute name="BaseRate" type="xs:decimal" default="1.0"/>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

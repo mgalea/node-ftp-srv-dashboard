@@ -1,0 +1,18 @@
+{
+  "name": "mongodb_tests",
+  "version": "1.0.0",
+  "description": "Mongo Db tests",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [
+    "MOngoDB",
+    "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[o\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[Ctest"
+  ],
+  "author": "Mario Galea",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.10.6"
+  }
+}

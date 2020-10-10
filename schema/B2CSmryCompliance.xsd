@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by Mario Galea (Random Consulting) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mga="MGA" xmlns:rri="RRI" targetNamespace="MGA" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="MGATypes.xsd"/>
 	<xs:import namespace="RRI" schemaLocation="commonTypes.xsd"/>

@@ -1,0 +1,118 @@
+/***********************************/
+/**           Rickshaw            **/
+/***********************************/
+.rickshaw_legend {
+  background-color: rgba(51, 51, 51, 0.425);
+  color: white;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-weight: 300;
+  padding-bottom: 40px;
+  background-color: #414e60 20%;
+  background-image: url(../img/bg-pattern.svg),
+    radial-gradient(farthest-side ellipse at 10% 0, #414e60 20%, #94a3b1);
+  background-image: url(../img/bg-pattern.svg),
+    -webkit-radial-gradient(10% 0, farthest-side ellipse, #414e60 20%, #94a3b1);
+  background-image: url(../img/bg-pattern.svg),
+    -moz-radial-gradient(10% 0, farthest-side ellipse, #414e60 20%, #94a3b1);
+  background-size: cover;
+  background-attachment: fixed, fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  color: #d2d2d2;
+  font-weight: 300;
+}
+
+input[type="search"],
+input.search {
+  padding-left: 26px;
+  background-color: #fff;
+  background: url(../img/search.png) 5px 6px no-repeat #fff;
+}
+
+input[type="search"].input-transparent,
+input.search.input-transparent {
+  border: none;
+  color: #f8f8f8;
+  background: url(../img/search-white.png) 5px 5px no-repeat rgba(51, 51, 51, 0.425);
+}
+
+input[type="search"].input-transparent::-moz-placeholder,
+input.search.input-transparent::-moz-placeholder {
+  color: rgba(238, 238, 238, 0.76);
+  opacity: 1;
+}
+
+input[type="search"].input-transparent:-ms-input-placeholder,
+input.search.input-transparent:-ms-input-placeholder {
+  color: rgba(238, 238, 238, 0.76);
+}
+
+input[type="search"].input-transparent::-webkit-input-placeholder,
+input.search.input-transparent::-webkit-input-placeholder {
+  color: rgba(238, 238, 238, 0.76);
+}
+
+ul ul,
+ol ul {
+  list-style: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+iframe {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+fieldset {
+  width: 100%;
+  min-width: 0;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+a {
+  -webkit-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.btn {
+  -webkit-transition: background-color 0.2s;
+  -o-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+  display: block;
+}

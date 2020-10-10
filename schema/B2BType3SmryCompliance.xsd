@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2019 (http://www.altova.com) by Jason Farrugia (Malta Gaming Authority) -->
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by Mario Galea (Random Consulting) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rri="RRI" xmlns:mga="MGA" targetNamespace="MGA" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:include schemaLocation="MGATypes.xsd"/>
 	<xs:import namespace="RRI" schemaLocation="commonTypes.xsd"/>
@@ -24,7 +24,7 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="GmActvty" type="mga:Type3SummaryGameActivityByOperator" maxOccurs="unbounded">
+						<xs:element name="SmryGmActvtybyOpr" type="mga:SummaryType3ActivityByOperator" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Document Content. Repeat for every B2C operator</xs:documentation>
 							</xs:annotation>

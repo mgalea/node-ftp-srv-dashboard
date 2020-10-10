@@ -82,3 +82,130 @@
 {"name":"ftpsrv","hostname":"Acer-Veriton","pid":4788,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-02T12:11:09.645Z","v":0}
 {"name":"ftpsrv","hostname":"RCD01","pid":19580,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-03T09:46:56.193Z","v":0}
 {"name":"ftpsrv","hostname":"RCD01","pid":38140,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-08-03T09:47:18.182Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":11880,"level":30,"protocol":"ftp","ip":"127.0.0.1","port":"8880","msg":"Listening","time":"2020-09-22T10:39:06.934Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36308,"level":50,"err":{"message":"listen EADDRINUSE: address already in use 127.0.0.1:8880","name":"Error","stack":"Error: listen EADDRINUSE: address already in use 127.0.0.1:8880\n    at Server.setupListenHandle [as _listen2] (net.js:1301:14)\n    at listenInCluster (net.js:1349:12)\n    at doListen (net.js:1488:7)\n    at processTicksAndRejections (internal/process/task_queues.js:81:21)","code":"EADDRINUSE"},"msg":"[Event] error","time":"2020-09-23T13:44:20.298Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":36308,"level":50,"err":{"message":"listen EADDRINUSE: address already in use 127.0.0.1:8880","name":"Error","stack":"Error: listen EADDRINUSE: address already in use 127.0.0.1:8880\n    at Server.setupListenHandle [as _listen2] (net.js:1301:14)\n    at listenInCluster (net.js:1349:12)\n    at doListen (net.js:1488:7)\n    at processTicksAndRejections (internal/process/task_queues.js:81:21)","code":"EADDRINUSE"},"msg":"[Event] error","time":"2020-09-23T13:44:20.298Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":32432,"level":50,"err":{"message":"listen EADDRINUSE: address already in use 127.0.0.1:8880","name":"Error","stack":"Error: listen EADDRINUSE: address already in use 127.0.0.1:8880\n    at Server.setupListenHandle [as _listen2] (net.js:1301:14)\n    at listenInCluster (net.js:1349:12)\n    at doListen (net.js:1488:7)\n    at processTicksAndRejections (internal/process/task_queues.js:81:21)","code":"EADDRINUSE"},"msg":"[Event] error","time":"2020-09-23T13:44:31.544Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":32432,"level":50,"err":{"message":"listen EADDRINUSE: address already in use 127.0.0.1:8880","name":"Error","stack":"Error: listen EADDRINUSE: address already in use 127.0.0.1:8880\n    at Server.setupListenHandle [as _listen2] (net.js:1301:14)\n    at listenInCluster (net.js:1349:12)\n    at doListen (net.js:1488:7)\n    at processTicksAndRejections (internal/process/task_queues.js:81:21)","code":"EADDRINUSE"},"msg":"[Event] error","time":"2020-09-23T13:44:31.544Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":8939,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T08:37:50.511Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":8939,"id":"81b09de2-de01-4b51-bdf1-8095c37462f0","directive":"PASS","level":50,"msg":"Bad username or password","time":"2020-10-06T08:39:03.763Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":8939,"id":"81b09de2-de01-4b51-bdf1-8095c37462f0","directive":"PASS","level":50,"msg":"Bad username or password","time":"2020-10-06T08:39:03.763Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":8939,"id":"2418d4e4-b9e9-4363-a016-e79a49b0c50c","directive":"LIST","level":50,"err":{"message":"operation timed out","name":"TimeoutError","stack":"TimeoutError: operation timed out\n    at afterTimeout (/home/mario/ftpsrv/node_modules/bluebird/js/release/timers.js:46:19)\n    at Timeout.timeoutTimeout [as _onTimeout] (/home/mario/ftpsrv/node_modules/bluebird/js/release/timers.js:76:13)\n    at ontimeout (timers.js:436:11)\n    at tryOnTimeout (timers.js:300:5)\n    at listOnTimeout (timers.js:263:5)\n    at Timer.processTimers (timers.js:223:10)"},"msg":"operation timed out","time":"2020-10-06T08:39:23.055Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":8939,"id":"2418d4e4-b9e9-4363-a016-e79a49b0c50c","directive":"LIST","level":50,"err":{"message":"operation timed out","name":"TimeoutError","stack":"TimeoutError: operation timed out\n    at afterTimeout (/home/mario/ftpsrv/node_modules/bluebird/js/release/timers.js:46:19)\n    at Timeout.timeoutTimeout [as _onTimeout] (/home/mario/ftpsrv/node_modules/bluebird/js/release/timers.js:76:13)\n    at ontimeout (timers.js:436:11)\n    at tryOnTimeout (timers.js:300:5)\n    at listOnTimeout (timers.js:263:5)\n    at Timer.processTimers (timers.js:223:10)"},"msg":"operation timed out","time":"2020-10-06T08:39:23.055Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9091,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T08:40:49.474Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9091,"id":"524cfbad-a0f2-4f5e-a386-075c1dfb063e","directive":"LIST","level":50,"err":{"message":"operation timed out","name":"TimeoutError","stack":"TimeoutError: operation timed out\n    at afterTimeout (/home/mario/ftpsrv/node_modules/bluebird/js/release/timers.js:46:19)\n    at Timeout.timeoutTimeout [as _onTimeout] (/home/mario/ftpsrv/node_modules/bluebird/js/release/timers.js:76:13)\n    at ontimeout (timers.js:436:11)\n    at tryOnTimeout (timers.js:300:5)\n    at listOnTimeout (timers.js:263:5)\n    at Timer.processTimers (timers.js:223:10)"},"msg":"operation timed out","time":"2020-10-06T08:41:04.546Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9091,"id":"524cfbad-a0f2-4f5e-a386-075c1dfb063e","directive":"LIST","level":50,"err":{"message":"operation timed out","name":"TimeoutError","stack":"TimeoutError: operation timed out\n    at afterTimeout (/home/mario/ftpsrv/node_modules/bluebird/js/release/timers.js:46:19)\n    at Timeout.timeoutTimeout [as _onTimeout] (/home/mario/ftpsrv/node_modules/bluebird/js/release/timers.js:76:13)\n    at ontimeout (timers.js:436:11)\n    at tryOnTimeout (timers.js:300:5)\n    at listOnTimeout (timers.js:263:5)\n    at Timer.processTimers (timers.js:223:10)"},"msg":"operation timed out","time":"2020-10-06T08:41:04.546Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9091,"level":30,"msg":"Server closing...","time":"2020-10-06T08:41:39.198Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9170,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T08:41:42.679Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9170,"level":30,"msg":"Server closing...","time":"2020-10-06T09:18:44.746Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9534,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T09:18:51.450Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9534,"id":"7170aee4-33f6-48f1-b224-406417533462","directive":"LIST","level":50,"err":{"message":"ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloadstest'","name":"Error","stack":"Error: ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloadstest'","code":"ENOENT"},"msg":"ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloadstest'","time":"2020-10-06T09:18:56.612Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9534,"id":"7170aee4-33f6-48f1-b224-406417533462","directive":"LIST","level":50,"err":{"message":"ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloadstest'","name":"Error","stack":"Error: ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloadstest'","code":"ENOENT"},"msg":"ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloadstest'","time":"2020-10-06T09:18:56.612Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9534,"level":30,"msg":"Server closing...","time":"2020-10-06T09:19:12.543Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9611,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T09:19:16.042Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":9611,"level":30,"msg":"Server closing...","time":"2020-10-06T10:37:37.224Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":10119,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T10:37:45.838Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":10119,"level":30,"msg":"Server closing...","time":"2020-10-06T10:42:57.395Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":10405,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T10:43:01.279Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":10405,"level":30,"msg":"Server closing...","time":"2020-10-06T10:51:36.303Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":10562,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T10:53:06.869Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":10562,"level":30,"msg":"Server closing...","time":"2020-10-06T10:53:18.776Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":10653,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T10:53:54.388Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":10653,"level":30,"msg":"Server closing...","time":"2020-10-06T15:22:16.499Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13323,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T15:29:03.381Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13323,"level":30,"msg":"Server closing...","time":"2020-10-06T15:29:03.675Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13415,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T15:32:51.845Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13415,"level":30,"msg":"Server closing...","time":"2020-10-06T15:50:24.913Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13520,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T15:50:31.105Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13520,"level":30,"msg":"Server closing...","time":"2020-10-06T15:50:31.401Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13593,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T15:51:03.801Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13593,"level":30,"msg":"Server closing...","time":"2020-10-06T15:51:58.086Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13674,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T15:52:01.267Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13674,"level":30,"msg":"Server closing...","time":"2020-10-06T16:03:03.632Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13798,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:03:06.901Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13798,"level":30,"msg":"Server closing...","time":"2020-10-06T16:08:12.789Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13886,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:08:16.898Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":13886,"level":30,"msg":"Server closing...","time":"2020-10-06T16:10:16.143Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14166,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:10:20.293Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14166,"level":30,"msg":"Server closing...","time":"2020-10-06T16:21:57.045Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14261,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:22:00.322Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14261,"level":30,"msg":"Server closing...","time":"2020-10-06T16:22:59.089Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14339,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:23:02.814Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14339,"level":30,"msg":"Server closing...","time":"2020-10-06T16:24:45.444Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14418,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:24:48.447Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14418,"level":30,"msg":"Server closing...","time":"2020-10-06T16:27:25.478Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14497,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:27:28.769Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14497,"level":30,"msg":"Server closing...","time":"2020-10-06T16:28:01.632Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14574,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:28:04.384Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14574,"level":30,"msg":"Server closing...","time":"2020-10-06T16:29:16.697Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14651,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:29:19.718Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14651,"level":30,"msg":"Server closing...","time":"2020-10-06T16:32:35.829Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14755,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T16:32:39.951Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":14755,"level":30,"msg":"Server closing...","time":"2020-10-06T17:14:39.505Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15182,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:14:47.269Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15182,"level":30,"msg":"Server closing...","time":"2020-10-06T17:37:55.927Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15373,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:38:02.374Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15373,"level":30,"msg":"Server closing...","time":"2020-10-06T17:38:56.036Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15453,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:38:59.022Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15453,"level":30,"msg":"Server closing...","time":"2020-10-06T17:39:04.456Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15552,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:48:28.139Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15552,"level":30,"msg":"Server closing...","time":"2020-10-06T17:48:35.030Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15635,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:49:54.206Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15635,"level":30,"msg":"Server closing...","time":"2020-10-06T17:50:36.162Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15716,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:50:38.994Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":15716,"level":30,"msg":"Server closing...","time":"2020-10-06T17:53:31.250Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16001,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:53:34.488Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16001,"level":30,"msg":"Server closing...","time":"2020-10-06T17:53:34.763Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16076,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:54:29.476Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16076,"level":30,"msg":"Server closing...","time":"2020-10-06T17:54:29.783Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16235,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T17:59:19.225Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16235,"level":30,"msg":"Server closing...","time":"2020-10-06T17:59:24.010Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16318,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T18:00:03.190Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16318,"level":30,"msg":"Server closing...","time":"2020-10-06T18:01:07.745Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16395,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T18:01:11.044Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16395,"level":30,"msg":"Server closing...","time":"2020-10-06T18:02:39.118Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16481,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T18:02:42.505Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16481,"level":30,"msg":"Server closing...","time":"2020-10-06T18:02:42.803Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16577,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T18:08:40.094Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16577,"level":30,"msg":"Server closing...","time":"2020-10-06T18:08:42.584Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16654,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T18:09:08.824Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16654,"level":30,"msg":"Server closing...","time":"2020-10-06T18:10:58.140Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16736,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T18:11:02.116Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16736,"level":30,"msg":"Server closing...","time":"2020-10-06T18:43:11.577Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16883,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T18:46:53.361Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16883,"level":30,"msg":"Server closing...","time":"2020-10-06T18:52:47.676Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16974,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-06T18:52:50.643Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":16974,"level":30,"msg":"Server closing...","time":"2020-10-06T21:15:01.902Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":27879,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:05:43.127Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":27879,"level":30,"msg":"Server closing...","time":"2020-10-07T08:05:43.407Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":27952,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:06:40.205Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":27952,"level":30,"msg":"Server closing...","time":"2020-10-07T08:06:40.493Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28028,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:09:28.255Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28028,"level":30,"msg":"Server closing...","time":"2020-10-07T08:09:28.539Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28097,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:10:02.710Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28097,"level":30,"msg":"Server closing...","time":"2020-10-07T08:10:02.979Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28170,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:10:43.966Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28170,"level":30,"msg":"Server closing...","time":"2020-10-07T08:10:44.254Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28246,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:11:43.025Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28246,"level":30,"msg":"Server closing...","time":"2020-10-07T08:11:43.305Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28513,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:13:10.371Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28513,"level":30,"msg":"Server closing...","time":"2020-10-07T08:13:10.632Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28587,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:15:40.525Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28587,"level":30,"msg":"Server closing...","time":"2020-10-07T08:15:40.817Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28663,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:18:21.012Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28663,"level":30,"msg":"Server closing...","time":"2020-10-07T08:18:22.006Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":28797,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T08:19:52.945Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":31681,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T09:17:09.069Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":31681,"level":30,"msg":"Server closing...","time":"2020-10-07T09:17:51.740Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":31787,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T09:17:57.939Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":31787,"level":30,"msg":"Server closing...","time":"2020-10-07T09:25:31.191Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":31907,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T09:25:35.484Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":31907,"level":30,"msg":"Server closing...","time":"2020-10-07T09:36:23.324Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":32084,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-07T09:36:31.989Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":32084,"id":"535edd8a-5604-43bd-a650-0818f09e76c9","directive":"CWD","level":50,"err":{"message":"ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloads/test/downloads/test'","name":"Error","stack":"Error: ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloads/test/downloads/test'","code":"ENOENT"},"msg":"ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloads/test/downloads/test'","time":"2020-10-07T09:44:56.328Z","v":0}
+{"name":"ftpsrv","hostname":"enola","pid":32084,"id":"535edd8a-5604-43bd-a650-0818f09e76c9","directive":"CWD","level":50,"err":{"message":"ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloads/test/downloads/test'","name":"Error","stack":"Error: ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloads/test/downloads/test'","code":"ENOENT"},"msg":"ENOENT: no such file or directory, stat '/home/mario/ftpsrv/downloads/test/downloads/test'","time":"2020-10-07T09:44:56.328Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":15560,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-09T14:31:02.658Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":27576,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-09T14:34:41.247Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":27576,"level":30,"msg":"Server closing...","time":"2020-10-09T14:36:12.728Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":6488,"level":30,"protocol":"ftp","ip":"0.0.0.0","port":"4000","msg":"Listening","time":"2020-10-09T15:28:17.685Z","v":0}
+{"name":"ftpsrv","hostname":"RCD01","pid":6488,"level":30,"msg":"Server closing...","time":"2020-10-09T15:30:38.576Z","v":0}

@@ -1,10 +1,14 @@
 {
-  "name": "ftpsrv",
+  "name": "earpsrv",
   "version": "1.0.0",
-  "description": "FTP server with special commands",
-  "main": "ftpsrv.js",
+  "description": "MGA EARP Application System",
+  "main": "./server/server.js",
   "scripts": {
-    "test": "test"
+    "ftpsrv": "node ./server/ftpsrv.js",
+    "httpsrv": "node ./server/server.js",
+    "testfiles": "node ./server/testfile.js",
+    "start": "npm run ftpsrv",
+    "all": "concurrently --kill-others \"npm run ftpsrv\" \"npm run testfiles\""
   },
   "keywords": [
     "ftp",
@@ -14,12 +18,27 @@
   "author": "Mario Galea",
   "license": "ISC",
   "dependencies": {
+    "accesscontrol": "^2.2.1",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
     "chokidar": "^3.4.1",
+    "dotenv": "^8.2.0",
+    "env": "0.0.2",
+    "express": "^4.17.1",
     "fast-xml-parser": "^3.17.4",
-    "ftp-srv": "^4.3.2",
+    "ftp-srv": "^4.3.4",
     "he": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
     "line-reader": "^0.4.0",
+    "minio": "^7.0.16",
+    "mongoose": "^5.10.6",
+    "multer": "^1.4.2",
     "nconf": "^0.10.0",
+    "readline": "^1.3.0",
+    "regex-stream": "0.0.3",
     "xsd-schema-validator": "^0.6.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
   }
 }

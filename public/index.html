@@ -1,0 +1,227 @@
+<!-- light-blue - v4.0.1 - 2018-10-31 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MGA EARP Compliance Portal Dashboard - Random Systems International</title>
+
+    <link href="css/application.css" rel="stylesheet">
+    <link href="css/application.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/glyphicons.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="utf-8">
+    <script>
+        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
+           chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
+                      https://code.google.com/p/chromium/issues/detail?id=332189
+        */
+    </script>
+</head>
+
+<body>
+    <div class="logo">
+        <h4><a href="index.html">EARP Compliance<sup>|</sup><strong>Portal</strong></a></h4>
+    </div>
+    <nav id="sidebar" class="sidebar nav-collapse collapse">
+        <ul id="side-nav" class="side-nav">
+            <li class="active">
+                <a href="index.html"><i class="fa fa-home"></i> <span class="name">Dashboard</span></a>
+            </li>
+            <li class="">
+                <a href="fileupload.html"><i class="fa fa-file"></i> File Upload</a></li>
+            </li>
+
+            <a href="notifications.html"><i class="fa fa-bell"></i> Notifications</a></li>
+            </li>
+        </ul>
+    </nav>
+    <div class="wrap">
+        <header class="page-header">
+            <div class="navbar">
+                <ul class="nav navbar-nav navbar-right pull-right">
+                    <li class="hidden-xs  divider"></li>
+                    <li class="hidden-xs dropdown">
+                        <a href="#" title="Account" id="account" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </a>
+                        <ul id="account-menu" class="dropdown-menu account" role="menu">
+                            <li role="presentation" class="account-picture">
+                                <img src="img/2.png" alt="">
+                                User
+                            </li>
+                            <li role="presentation">
+                                <a href="form_account.html" class="link">
+                                    <i class="fa fa-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="component_calendar.html" class="link">
+                                    <i class="fa fa-calendar"></i>
+                                    Calendar
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#" class="link">
+                                    <i class="fa fa-inbox"></i>
+                                    Messages
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="visible-xs">
+                        <a href="#" class="btn-navbar" data-toggle="collapse" data-target=".sidebar" title="">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                    <li class="hidden-xs"><a href="login.html"><i class="glyphicon glyphicon-off"></i></a></li>
+                </ul>
+
+            </div>
+        </header>
+        <div id="main_window" class="content container">
+            <h2 class="page-title">Dashboard <small>Statistics</small></h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <section class="widget">
+                        <header>
+                            <h4>
+                                Visits
+                                <small>
+                                    Based on a three months data
+                                </small>
+                            </h4>
+                            <div class="widget-controls">
+                                <a title="Options" href="#"><i class="glyphicon glyphicon-cog"></i></a>
+                                <a data-widgster="expand" title="Expand" href="#"><i
+                                        class="glyphicon glyphicon-chevron-up"></i></a>
+                                <a data-widgster="collapse" title="Collapse" href="#"><i
+                                        class="glyphicon glyphicon-chevron-down"></i></a>
+                                <a data-widgster="close" title="Close" href="#"><i
+                                        class="glyphicon glyphicon-remove"></i></a>
+                            </div>
+                        </header>
+                        <div class="body no-margin">
+
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+
+        </div>
+        <footer class="content-footer">
+            Random Systems International <a href="https://flatlogic.com" rel="nofollow noopener noreferrer"
+                target="_blank">Flatlogic</a>
+        </footer>
+        <div class="loader-wrap hiding hide">
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+        </div>
+    </div>
+    <!-- common libraries. required for every page-->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/jquery-pjax/jquery.pjax.js"></script>
+    <script src="lib/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+    <script src="lib/widgster/widgster.js"></script>
+    <script src="lib/underscore/underscore.js"></script>
+
+    <!-- common application js -->
+    <script src="js/app.js"></script>
+    <script src="js/settings.js"></script>
+
+    <!-- common templates -->
+    <script type="text/template" id="settings-template">
+        <div class="setting clearfix">
+        <div>Sidebar on the</div>
+        <div id="sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            <% onRight = sidebar == 'right'%>
+            <button type="button" data-value="left" class="btn btn-sm btn-default <%= onRight? '' : 'active' %>">Left</button>
+            <button type="button" data-value="right" class="btn btn-sm btn-default <%= onRight? 'active' : '' %>">Right</button>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>Sidebar</div>
+        <div id="display-sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            <% display = displaySidebar%>
+            <button type="button" data-value="true" class="btn btn-sm btn-default <%= display? 'active' : '' %>">Show</button>
+            <button type="button" data-value="false" class="btn btn-sm btn-default <%= display? '' : 'active' %>">Hide</button>
+        </div>
+    </div>
+</script>
+
+    <script type="text/template" id="sidebar-settings-template">
+        <% auto = sidebarState == 'auto'%>
+    <% if (auto) {%>
+    <button type="button"
+            data-value="icons"
+            class="btn-icons btn btn-transparent btn-sm">Icons</button>
+    <button type="button"
+            data-value="auto"
+            class="btn-auto btn btn-transparent btn-sm">Auto</button>
+    <%} else {%>
+    <button type="button"
+            data-value="auto"
+            class="btn btn-transparent btn-sm">Auto</button>
+    <% } %>
+</script>
+
+    <!-- page specific scripts -->
+    <!-- page libs -->
+    <script src="lib/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="lib/jquery.sparkline/index.js"></script>
+
+    <script src="lib/backbone/backbone.js"></script>
+    <script src="lib/backbone.localStorage/build/backbone.localStorage.min.js"></script>
+
+    <script src="lib/d3/d3.min.js"></script>
+    <script src="lib/nvd3/build/nv.d3.min.js"></script>
+
+    <!-- page application js -->
+    <script src="js/index.js"></script>
+    <script src="js/chat.js"></script>
+
+    <!-- page template -->
+    <script type="text/template" id="message-template">
+        <div class="sender pull-left">
+                <div class="icon">
+                    <img src="img/2.png" class="img-circle" alt="">
+                </div>
+                <div class="time">
+                    just now
+                </div>
+            </div>
+            <div class="chat-message-body">
+                <span class="arrow"></span>
+                <div class="sender"><a href="#">Tikhon Laninga</a></div>
+                <div class="text">
+                    <%- text %>
+                </div>
+            </div>
+        </script>
+    <script type="text/javascript" id="scrollbar-template">
+        window.addEventListener("resize", displayWindowSize);
+
+        function displayWindowSize() {
+            $('#main_window').slimScroll({
+                position: 'right',
+                size: '5px',
+                height: window.innerHeight - 80,
+                railVisible: true,
+                distance: '2px',
+                alwaysVisible: true
+            })
+        }
+    </script>
+
+
+</body>
+
+</html>

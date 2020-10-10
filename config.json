@@ -2,11 +2,15 @@
     "ftpserver": {
         "name": "earpFTPServer",
         "welcomemsg": "EARP FTP Server. Random Systems International. All rights reserved 2019.",
-        "url": "ftp://127.0.0.1:8880",
-        "port": 8880,
-        "passv_url": "192.168.8.135",
-        "anonymous": "sillyrabbit",
-        "root_dir": "c:\\Operators"
+        "url": "ftp://0.0.0.0:4000",
+        "port": 4000,
+        "passv_url": "192.168.8.198",
+        "root_dir": "/downloads"
+    },
+    "httpserver": {
+        "port": 8080,
+        "passv_url": "192.168.8.198",
+        "root_dir": "./public"
     },
     "file_search_pattern": {
         "extension": "(\\.xml)$",
@@ -16,7 +20,8 @@
         "date": "_20[2-9][0-9]_(0[1-9]|1[0-2])_([0-2][0-9]|3[0-1])",
         "oper_id": "[0-9]{3,4}"
     },
-    "sha_key": "412169M",
+    "sha_key": "The Big White Elephant in the room.",
+    "JWT_SECRET": "The Big White Elephant in the room.",
     "users": [
         {
             "userid": "dragonara",
